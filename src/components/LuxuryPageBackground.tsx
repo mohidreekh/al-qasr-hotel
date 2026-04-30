@@ -1,10 +1,4 @@
-import {
-  useEffect,
-  useRef,
-  type CSSProperties,
-  type PointerEvent,
-  type ReactNode,
-} from 'react'
+import { type CSSProperties, type ReactNode } from 'react'
 
 type LuxuryPageBackgroundProps = {
   children: ReactNode
@@ -47,92 +41,17 @@ const cursorRingStyle: CSSProperties = {
 }
 
 function LuxuryPageBackground({ children }: LuxuryPageBackgroundProps) {
-  const pageRef = useRef<HTMLDivElement | null>(null)
-  const motionFrameRef = useRef<number | null>(null)
-  const pointerViewportRef = useRef<{ x: number; y: number } | null>(null)
-
-  const setCursorPosition = (
-    target: HTMLDivElement,
-    clientX: number,
-    clientY: number,
-  ) => {
-    target.style.setProperty('--cursor-x', `${clientX + window.scrollX}px`)
-    target.style.setProperty('--cursor-y', `${clientY + window.scrollY}px`)
-  }
-
-  useEffect(() => {
-    const handleScroll = () => {
-      if (!pageRef.current || !pointerViewportRef.current) {
-        return
-      }
-
-      const { x, y } = pointerViewportRef.current
-
-      if (motionFrameRef.current !== null) {
-        window.cancelAnimationFrame(motionFrameRef.current)
-      }
-
-      motionFrameRef.current = window.requestAnimationFrame(() => {
-        if (pageRef.current) {
-          setCursorPosition(pageRef.current, x, y)
-        }
-      })
-    }
-
-    window.addEventListener('scroll', handleScroll, { passive: true })
-
-    return () => {
-      window.removeEventListener('scroll', handleScroll)
-
-      if (motionFrameRef.current !== null) {
-        window.cancelAnimationFrame(motionFrameRef.current)
-      }
-    }
-  }, [])
-
-  const handlePointerMove = (event: PointerEvent<HTMLDivElement>) => {
-    const target = event.currentTarget
-    const { clientX, clientY } = event
-    pointerViewportRef.current = { x: clientX, y: clientY }
-
-    if (motionFrameRef.current !== null) {
-      window.cancelAnimationFrame(motionFrameRef.current)
-    }
-
-    motionFrameRef.current = window.requestAnimationFrame(() => {
-      setCursorPosition(target, clientX, clientY)
-    })
-  }
-
-  const handlePointerLeave = (event: PointerEvent<HTMLDivElement>) => {
-    pointerViewportRef.current = null
-    event.currentTarget.style.setProperty('--cursor-x', '50vw')
-    event.currentTarget.style.setProperty('--cursor-y', '50vh')
-  }
-
   return (
     <div
-      ref={pageRef}
       className="relative isolate min-h-screen overflow-x-hidden bg-[#f5f6f5] text-[#304759]"
-      onPointerLeave={handlePointerLeave}
-      onPointerMove={handlePointerMove}
       style={pageMotionVars}
     >
       <div aria-hidden="true" className="pointer-events-none absolute inset-0 z-0 overflow-hidden">
+        <div className="absolute inset-0 opacity-100" style={cursorGlowStyle} />
+        <div className="absolute inset-0 opacity-90" style={cursorRingStyle} />
+        <div className="absolute inset-[-18%] opacity-90" style={ambientPatternStyle} />
         <div
-          className="absolute inset-0 opacity-100 transition-[background-image] duration-150 ease-out"
-          style={cursorGlowStyle}
-        />
-        <div
-          className="absolute inset-0 opacity-90 transition-[background] duration-150 ease-out"
-          style={cursorRingStyle}
-        />
-        <div
-          className="absolute inset-[-18%] opacity-90 transition-transform duration-300 ease-out"
-          style={ambientPatternStyle}
-        />
-        <div
-          className="absolute left-[18%] top-[-18%] h-[130%] w-[58%] opacity-[0.45] blur-[1px] transition-transform duration-300 ease-out"
+          className="absolute left-[18%] top-[-18%] h-[130%] w-[58%] opacity-[0.45] blur-[1px]"
           style={softSheenStyle}
         />
         <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(255,255,255,0.72),rgba(245,246,245,0.16)_36%,rgba(245,246,245,0.82))]" />

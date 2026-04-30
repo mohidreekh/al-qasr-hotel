@@ -60,29 +60,29 @@ function LuxuryFooter({
       )}
     >
       <div
-        className="mx-auto grid w-full max-w-[1456px] grid-cols-1 items-start gap-10 rounded-[28px] px-8 py-9 text-white min-[500px]:min-h-[180px] min-[500px]:grid-cols-[280px_520px] min-[500px]:justify-center min-[500px]:gap-[96px] min-[500px]:px-10 min-[500px]:py-8 md:min-h-[280px] md:grid-cols-[340px_760px] md:gap-[clamp(90px,10vw,170px)] md:px-14 md:py-10"
+        className="mx-auto grid w-full max-w-[1456px] grid-cols-1 items-center gap-8 rounded-[28px] px-6 py-7 text-white sm:px-8 sm:py-8 md:grid-cols-[minmax(0,0.88fr)_minmax(0,1.12fr)] md:items-start md:gap-12 lg:px-12 lg:py-10 xl:grid-cols-[340px_760px] xl:justify-center xl:gap-[clamp(90px,10vw,170px)]"
         style={footerSurfaceStyle}
       >
-        <section aria-labelledby="luxury-footer-social">
+        <section aria-labelledby="luxury-footer-social" className="flex flex-col items-center">
           <h2
             id="luxury-footer-social"
-            className="text-center font-['Roboto',sans-serif] text-[clamp(24px,2.9vw,44px)] font-bold leading-none tracking-wide"
+            className="text-center font-['Roboto',sans-serif] text-[clamp(22px,5vw,44px)] font-bold leading-none tracking-wide"
           >
             Follow Us
           </h2>
 
-          <ul className="mx-auto mt-[clamp(24px,2.7vw,40px)] flex w-fit flex-col gap-[clamp(18px,2vw,34px)]">
+          <ul className="mx-auto mt-[clamp(20px,5vw,40px)] flex w-full max-w-[18rem] flex-col items-center gap-[clamp(16px,4.5vw,34px)] md:max-w-none md:items-start">
             {socialLinks.map(({ label, href, iconSrc, ariaLabel }) => (
-              <li key={label}>
+              <li key={label} className="w-full">
                 <a
                   href={href}
                   aria-label={ariaLabel ?? label}
-                  className="group inline-flex items-center gap-[clamp(10px,1.2vw,18px)] font-['Roboto',sans-serif] text-[clamp(13px,1.35vw,22px)] font-normal leading-none text-white/94 underline decoration-white/92 decoration-1 underline-offset-[4px] transition duration-300 hover:-translate-y-0.5 hover:text-white"
+                  className="group inline-flex w-full items-center justify-center gap-[clamp(10px,1.2vw,18px)] text-center font-['Roboto',sans-serif] text-[clamp(12px,3.8vw,22px)] font-normal leading-none text-white/94 underline decoration-white/92 decoration-1 underline-offset-[4px] transition duration-300 hover:-translate-y-0.5 hover:text-white md:justify-start md:text-left"
                 >
                   <img
                     src={iconSrc}
                     alt=""
-                    className="h-[clamp(18px,2vw,34px)] w-[clamp(18px,2vw,34px)] shrink-0 object-contain transition duration-300 group-hover:scale-105"
+                    className="h-[clamp(16px,4.6vw,34px)] w-[clamp(16px,4.6vw,34px)] shrink-0 object-contain transition duration-300 group-hover:scale-105"
                   />
                   <span>{label}</span>
                 </a>
@@ -91,40 +91,40 @@ function LuxuryFooter({
           </ul>
         </section>
 
-        <section aria-labelledby="luxury-footer-contact">
+        <section aria-labelledby="luxury-footer-contact" className="flex flex-col items-center">
           <h2
             id="luxury-footer-contact"
-            className="text-center font-['Roboto',sans-serif] text-[clamp(24px,2.9vw,44px)] font-bold leading-none tracking-wide"
+            className="text-center font-['Roboto',sans-serif] text-[clamp(22px,5vw,44px)] font-bold leading-none tracking-wide"
           >
             Contact
           </h2>
 
-          <ul className="mx-auto mt-[clamp(24px,2.7vw,40px)] flex w-fit flex-col gap-[clamp(18px,2vw,34px)]">
+          <ul className="mx-auto mt-[clamp(20px,5vw,40px)] flex w-full max-w-[26rem] flex-col items-center gap-[clamp(16px,4.5vw,34px)] md:items-start">
             {contactItems.map(({ label, value, href, iconSrc }) => {
               const content = (
                 <>
                   <img
                     src={iconSrc}
                     alt=""
-                    className="mt-[2px] h-[clamp(18px,2vw,34px)] w-[clamp(18px,2vw,34px)] shrink-0 object-contain"
+                    className="mt-[2px] h-[clamp(16px,4.6vw,34px)] w-[clamp(16px,4.6vw,34px)] shrink-0 object-contain"
                   />
-                  <span className="min-w-0 break-words">
+                  <span className="min-w-0 break-words text-center md:text-left">
                     {label}: {value}
                   </span>
                 </>
               )
 
               return (
-                <li key={label}>
+                <li key={label} className="w-full">
                   {href ? (
                     <a
                       href={href}
-                      className="inline-flex min-w-0 items-start gap-[clamp(10px,1.2vw,18px)] font-['Roboto',sans-serif] text-[clamp(13px,1.35vw,22px)] font-normal leading-[1.16] text-white/94 transition duration-300 hover:-translate-y-0.5 hover:text-white"
+                      className="inline-flex w-full min-w-0 items-start justify-center gap-[clamp(10px,1.2vw,18px)] font-['Roboto',sans-serif] text-[clamp(12px,3.8vw,22px)] font-normal leading-[1.22] text-white/94 transition duration-300 hover:-translate-y-0.5 hover:text-white md:justify-start"
                     >
                       {content}
                     </a>
                   ) : (
-                    <div className="inline-flex min-w-0 items-start gap-[clamp(10px,1.2vw,18px)] font-['Roboto',sans-serif] text-[clamp(13px,1.35vw,22px)] font-normal leading-[1.16] text-white/94">
+                    <div className="inline-flex w-full min-w-0 items-start justify-center gap-[clamp(10px,1.2vw,18px)] font-['Roboto',sans-serif] text-[clamp(12px,3.8vw,22px)] font-normal leading-[1.22] text-white/94 md:justify-start">
                       {content}
                     </div>
                   )}

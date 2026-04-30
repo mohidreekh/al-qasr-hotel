@@ -46,11 +46,11 @@ function LuxuryNavbar({
   return (
     <header
       className={cx(
-        'w-full overflow-x-clip overflow-y-visible bg-transparent px-2 sm:px-5',
+        'w-full overflow-x-clip overflow-y-visible bg-transparent px-3 sm:px-5',
         className,
       )}
     >
-      <div className="relative mx-auto h-[clamp(220px,33vw,418px)] w-full max-w-[1490px] overflow-visible">
+      <div className="relative mx-auto h-[182px] w-full max-w-[1490px] overflow-visible min-[500px]:h-[clamp(220px,33vw,418px)]">
         <svg
           aria-hidden="true"
           viewBox="0 0 1280 492"
@@ -94,7 +94,7 @@ function LuxuryNavbar({
         <a
           href="#"
           aria-label="Al-Qasr Hotel home"
-          className="absolute left-[4.2%] top-[0.01%] z-10 flex w-[clamp(142px,22vw,310px)] items-center justify-center transition duration-300 hover:scale-[1.015]"
+          className="absolute left-[5%] top-[4%] z-10 flex w-[132px] items-center justify-center transition duration-300 hover:scale-[1.015] min-[500px]:left-[4.2%] min-[500px]:top-[0.01%] min-[500px]:w-[clamp(142px,22vw,310px)]"
         >
           <img
             src={logoSrc}
@@ -103,7 +103,7 @@ function LuxuryNavbar({
           />
         </a>
 
-        <div className="absolute right-[0.8%] top-[2.6%] z-20 flex items-center gap-1 pr-1 font-['Kurale',serif] text-[10px] font-normal leading-none text-white sm:text-[clamp(11px,1.1vw,18px)]">
+        <div className="absolute right-[4.8%] top-[6.5%] z-20 flex items-center gap-1 pr-1 font-['Kurale',serif] text-[10px] font-normal leading-none text-white min-[500px]:right-[0.8%] min-[500px]:top-[2.6%] sm:text-[clamp(11px,1.1vw,18px)]">
           <img
             src={usaFlag}
             alt=""
@@ -148,7 +148,7 @@ function LuxuryNavbar({
           aria-label={isMenuOpen ? 'Close navigation menu' : 'Open navigation menu'}
           aria-expanded={isMenuOpen}
           onClick={() => setIsMenuOpen((open) => !open)}
-          className="absolute right-[6%] top-[12.8%] z-30 flex h-11 w-11 items-center justify-center rounded-full border border-white/30 bg-white/8 shadow-[0_8px_18px_rgba(0,0,0,0.18)] backdrop-blur transition duration-300 hover:bg-white/14 min-[500px]:hidden"
+          className="absolute right-[5.6%] top-[15.2%] z-30 flex h-10 w-10 items-center justify-center rounded-full border border-white/30 bg-white/8 shadow-[0_8px_18px_rgba(0,0,0,0.18)] backdrop-blur transition duration-300 hover:bg-white/14 min-[500px]:hidden"
         >
           <span className="sr-only">Menu</span>
           <span className="relative h-4 w-5">
@@ -175,11 +175,13 @@ function LuxuryNavbar({
 
         <div
           className={cx(
-            'absolute left-[36%] right-[6%] top-[25.5%] z-30 overflow-hidden rounded-b-[28px] border border-white/15 bg-[#0d1d2b]/96 shadow-[0_16px_28px_rgba(10,20,32,0.35)] backdrop-blur transition-all duration-300 min-[500px]:hidden',
-            isMenuOpen ? 'max-h-80 opacity-100' : 'max-h-0 border-transparent opacity-0',
+            'absolute left-[5%] right-[5%] top-[34%] z-30 overflow-hidden rounded-[24px] border border-white/15 bg-[#0d1d2b]/96 shadow-[0_16px_28px_rgba(10,20,32,0.35)] backdrop-blur transition-all duration-300 min-[500px]:hidden',
+            isMenuOpen
+              ? 'max-h-80 opacity-100'
+              : 'pointer-events-none max-h-0 border-transparent opacity-0',
           )}
         >
-          <nav aria-label="Mobile navigation" className="flex flex-col px-5 py-4 font-['Kurale',serif] text-lg font-normal text-white">
+          <nav aria-label="Mobile navigation" className="flex flex-col px-5 py-4 font-['Kurale',serif] text-base font-normal text-white">
             {links.map((link) => {
               const isActive = link.label === activeLabel
 

@@ -42,24 +42,24 @@ function HomePage() {
     <>
       <LuxuryNavbar />
 
-      <main className="mx-auto -mt-[clamp(102px,15.8vw,220px)] flex w-full max-w-[1456px] flex-col items-center px-4 pb-[clamp(62px,9.8vw,120px)] pt-0 sm:px-5">
+      <main className="mx-auto -mt-[clamp(34px,8vw,82px)] flex w-full max-w-[1456px] flex-col items-center px-5 pb-[clamp(62px,9.8vw,120px)] pt-0 sm:-mt-[clamp(82px,14vw,220px)] sm:px-6 lg:px-8">
         <section aria-labelledby="home-welcome-title" className="w-full text-center">
           <h1
             id="home-welcome-title"
-            className="font-['Kurale',serif] text-[clamp(50px,8.68vw,90px)] font-normal leading-[0.95] tracking-normal text-[#304759]"
+            className="font-['Kurale',serif] text-[clamp(42px,11vw,90px)] font-normal leading-[0.95] tracking-normal text-[#304759]"
           >
             Welcome
           </h1>
-          <p className="mt-3 font-['Kurale',serif] text-[clamp(23px,4.2vw,45px)] font-normal leading-none text-[#304759]">
+          <p className="mt-2 font-['Kurale',serif] text-[clamp(20px,5.8vw,45px)] font-normal leading-none text-[#304759] sm:mt-3">
             Al-Qasr Hotel
           </p>
 
-          <p className="mx-auto mt-[clamp(67px,9.8vw,106px)] max-w-[1344px] font-['Kurale',serif] text-[clamp(14px,2.87vw,35px)] font-normal leading-[1.45] text-[#304759]">
+          <p className="mx-auto mt-[clamp(38px,8vw,106px)] max-w-[1344px] font-['Kurale',serif] text-[clamp(14px,3.9vw,35px)] font-normal leading-[1.5] text-[#304759] sm:leading-[1.45]">
             {introText}
           </p>
         </section>
 
-        <HotelImageSlider slides={hotelSlides} autoPlay />
+        <HotelImageSlider slides={hotelSlides} autoPlay className="mt-[clamp(22px,5vw,56px)]" />
       </main>
 
       <LuxuryFooter className="!pt-0" />
