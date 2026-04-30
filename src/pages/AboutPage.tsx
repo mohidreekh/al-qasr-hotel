@@ -1,0 +1,118 @@
+import aboutHotelInterior from '../assets/about-hotel-interior.png'
+import checkIcon from '../assets/about-value-check.png'
+import heartIcon from '../assets/about-value-heart.png'
+import starIcon from '../assets/about-value-star.png'
+import LuxuryFooter from '../components/LuxuryFooter'
+import LuxuryNavbar from '../components/LuxuryNavbar'
+import { primaryNavLinks } from '../siteNavigation'
+
+const aboutIntroText =
+  'Al-Qasr Hotel is one of the projects of Al-Rayyan Real Estate and Investment Company, reflecting the values of authentic Palestinian hospitality and distinguished hospitality experiences. Located away from the hustle and bustle.'
+
+const values = [
+  {
+    title: 'Excellence',
+    description: 'We strive for excellence in every aspect of our service.',
+    iconSrc: starIcon,
+    iconAlt: 'Star icon',
+  },
+  {
+    title: 'Hospitality',
+    description: 'Authentic Palestinian hospitality at the heart of what we do.',
+    iconSrc: heartIcon,
+    iconAlt: 'Heart icon',
+  },
+  {
+    title: 'Quality',
+    description: 'Premium quality in facilities, services, and experiences.',
+    iconSrc: checkIcon,
+    iconAlt: 'Check icon',
+  },
+] as const
+
+function AboutPage() {
+  return (
+    <>
+      <LuxuryNavbar links={primaryNavLinks} activeLabel="About us" />
+
+      <main className="mx-auto -mt-[clamp(34px,8vw,82px)] flex w-full max-w-[1456px] flex-col items-center px-5 pb-[clamp(62px,9.8vw,120px)] pt-0 sm:-mt-[clamp(82px,14vw,220px)] sm:px-6 lg:px-8">
+        <section aria-labelledby="about-page-title" className="w-full text-center">
+          <h1
+            id="about-page-title"
+            className="font-['Kurale',serif] text-[clamp(42px,11vw,90px)] font-normal leading-[0.95] tracking-normal text-[#304759]"
+          >
+            About Us
+          </h1>
+          <p className="mt-2 font-['Kurale',serif] text-[clamp(20px,5.8vw,45px)] font-normal leading-none text-[#304759] sm:mt-3">
+            Al-Qasr Hotel
+          </p>
+
+          <p className="mx-auto mt-[clamp(38px,8vw,106px)] max-w-[1344px] font-['Kurale',serif] text-[clamp(14px,3.9vw,35px)] font-normal leading-[1.5] text-[#304759] sm:leading-[1.45]">
+            {aboutIntroText}
+          </p>
+        </section>
+
+        <section aria-labelledby="about-interior-image" className="mt-[clamp(22px,5vw,56px)] w-full">
+          <h2 id="about-interior-image" className="sr-only">
+            Al-Qasr Hotel interior
+          </h2>
+
+          <div className="relative mx-auto w-full max-w-[1080px]">
+            <div
+              aria-hidden="true"
+              className="pointer-events-none absolute inset-x-[5%] top-[6%] h-[88%] rounded-[34px] bg-[radial-gradient(circle_at_25%_28%,rgba(255,255,255,0.62),rgba(255,255,255,0)_34%),radial-gradient(circle_at_82%_70%,rgba(198,148,121,0.2),rgba(198,148,121,0)_38%)] opacity-80 blur-3xl"
+            />
+
+            <figure className="relative overflow-hidden rounded-[30px] border border-[#d5aa93]/45 bg-white shadow-[0_18px_36px_rgba(20,32,42,0.12),0_8px_18px_rgba(198,148,121,0.08)] sm:rounded-[40px]">
+              <img
+                src={aboutHotelInterior}
+                alt="Elegant seating area inside Al-Qasr Hotel"
+                className="block aspect-[16/9] w-full object-cover object-center"
+              />
+            </figure>
+          </div>
+        </section>
+
+        <section aria-labelledby="about-values-title" className="mt-[clamp(48px,7vw,86px)] w-full">
+          <div className="mx-auto max-w-[760px] text-center">
+            <h2
+              id="about-values-title"
+              className="font-['Kurale',serif] text-[clamp(34px,8vw,60px)] font-normal leading-[0.96] text-[#304759]"
+            >
+              Our Values
+            </h2>
+          </div>
+
+          <div className="mx-auto mt-[clamp(28px,5vw,48px)] grid w-full max-w-[1060px] gap-y-10 md:grid-cols-3 md:gap-x-8 lg:gap-x-14">
+            {values.map(({ title, description, iconSrc, iconAlt }) => (
+              <article
+                key={title}
+                className="group flex flex-col items-center px-4 text-center"
+              >
+                <div className="relative mx-auto flex size-[clamp(108px,13vw,126px)] items-center justify-center rounded-full bg-[linear-gradient(135deg,#23394d_0%,#33526f_55%,#4f7598_100%)] transition duration-300 group-hover:scale-[1.03] group-hover:brightness-[1.03]">
+                  <img
+                    src={iconSrc}
+                    alt={iconAlt}
+                    className="h-[clamp(28px,4vw,42px)] w-[clamp(28px,4vw,42px)] object-contain brightness-0 invert transition duration-300 group-hover:scale-105"
+                  />
+                </div>
+
+                <h3 className="mt-5 font-['Kurale',serif] text-[clamp(24px,5vw,30px)] font-normal leading-none text-[#304759]">
+                  {title}
+                </h3>
+
+                <p className="mx-auto mt-4 max-w-[260px] font-['Kurale',serif] text-[clamp(14px,3.6vw,20px)] leading-[1.55] text-[#304759]">
+                  {description}
+                </p>
+              </article>
+            ))}
+          </div>
+        </section>
+      </main>
+
+      <LuxuryFooter className="!pt-0" />
+    </>
+  )
+}
+
+export default AboutPage

@@ -11,6 +11,7 @@ export type LuxuryNavItem = {
 type LuxuryNavbarProps = {
   logoSrc?: string
   logoAlt?: string
+  logoHref?: string
   links?: LuxuryNavItem[]
   activeLabel?: string
   className?: string
@@ -33,6 +34,7 @@ const cx = (...classes: Array<string | false | undefined>) =>
 function LuxuryNavbar({
   logoSrc = defaultLogo,
   logoAlt = 'Al-Qasr Hotel',
+  logoHref = '#/',
   links = defaultLinks,
   activeLabel = 'Home',
   className,
@@ -92,7 +94,7 @@ function LuxuryNavbar({
         </svg>
 
         <a
-          href="#"
+          href={logoHref}
           aria-label="Al-Qasr Hotel home"
           className="absolute left-[5%] top-[4%] z-10 flex w-[132px] items-center justify-center transition duration-300 hover:scale-[1.015] min-[500px]:left-[4.2%] min-[500px]:top-[0.01%] min-[500px]:w-[clamp(142px,22vw,310px)]"
         >

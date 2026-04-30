@@ -6,6 +6,7 @@ import LuxuryNavbar from '../components/LuxuryNavbar'
 import hotelEntrance from '../assets/hotel-entrance.png'
 import hotelLounge from '../assets/hotel-lounge.png'
 import hotelNightSign from '../assets/hotel-night-sign.png'
+import { primaryNavLinks } from '../siteNavigation'
 
 const introText =
   'Al-Qasr Hotel is one of the projects of Al-Rayyan Real Estate and Investment Company, reflecting the values of authentic Palestinian hospitality and distinguished hospitality experiences. Located away from the hustle and bustle of the city center, the hotel offers guests easy access to key facilities and attractions.'
@@ -40,7 +41,7 @@ const hotelSlides: HotelImageSlide[] = [
 function HomePage() {
   return (
     <>
-      <LuxuryNavbar />
+      <LuxuryNavbar links={primaryNavLinks} activeLabel="Home" />
 
       <main className="mx-auto -mt-[clamp(34px,8vw,82px)] flex w-full max-w-[1456px] flex-col items-center px-5 pb-[clamp(62px,9.8vw,120px)] pt-0 sm:-mt-[clamp(82px,14vw,220px)] sm:px-6 lg:px-8">
         <section aria-labelledby="home-welcome-title" className="w-full text-center">
