@@ -1,8 +1,15 @@
 import { useEffect, useState } from 'react'
 
+import OptimizedPicture, { type ImagetoolsPicture } from './OptimizedPicture'
+import {
+  SLIDER_MAIN_SIZES,
+  SLIDER_PEEK_SIZES,
+  SLIDER_SECONDARY_SIZES,
+} from '../lib/sliderImageSizes'
+
 export type HotelImageSlide = {
-  mainImage: string
-  secondaryImage: string
+  main: ImagetoolsPicture
+  secondary: ImagetoolsPicture
   mainAlt: string
   secondaryAlt?: string
   mainObjectPosition?: string
@@ -69,6 +76,7 @@ function HotelImageSlider({
 
   const currentSlide = slides[activeIndex]
   const nextSlide = slides[nextIndex]
+  const isFirstSlide = activeIndex === 0
 
   return (
     <section
@@ -86,11 +94,14 @@ function HotelImageSlider({
               'left-[0%] top-[clamp(0px,0.5vw,10px)] w-[70%] -translate-x-[clamp(8px,1.2vw,18px)] scale-[0.94] opacity-45 blur-[0.35px] saturate-[0.92] min-[500px]:left-[5%] min-[500px]:w-[54%]',
           )}
         >
-          <img
-            src={currentSlide.mainImage}
+          <OptimizedPicture
+            picture={currentSlide.main}
             alt={currentSlide.mainAlt}
+            sizes={SLIDER_MAIN_SIZES}
             className="h-[clamp(172px,49vw,555px)] w-full object-cover min-[500px]:h-[clamp(205px,40vw,555px)]"
             style={{ objectPosition: currentSlide.mainObjectPosition ?? 'center' }}
+            loading={isFirstSlide ? 'eager' : 'lazy'}
+            fetchPriority={isFirstSlide ? 'high' : 'low'}
           />
         </figure>
 
@@ -101,9 +112,10 @@ function HotelImageSlider({
               'left-[2%] top-[clamp(6px,1vw,20px)] z-30 w-[74%] shadow-[0_28px_52px_rgba(20,32,42,0.22),0_12px_24px_rgba(198,148,121,0.15)] min-[500px]:left-[8%] min-[500px]:w-[58%]',
           )}
         >
-          <img
-            src={currentSlide.secondaryImage}
+          <OptimizedPicture
+            picture={currentSlide.secondary}
             alt={currentSlide.secondaryAlt ?? currentSlide.mainAlt}
+            sizes={SLIDER_SECONDARY_SIZES}
             className={cx(
               'w-full object-cover transition-[height] duration-[1100ms] ease-[cubic-bezier(0.22,1,0.36,1)]',
               isAnimating
@@ -113,6 +125,8 @@ function HotelImageSlider({
             style={{
               objectPosition: currentSlide.secondaryObjectPosition ?? 'center',
             }}
+            loading="lazy"
+            fetchPriority="low"
           />
         </figure>
 
@@ -125,11 +139,14 @@ function HotelImageSlider({
                 'left-[48%] top-[clamp(92px,21vw,165px)] opacity-100 saturate-[0.96] min-[500px]:left-[55%] min-[500px]:top-[clamp(104px,15vw,165px)] min-[500px]:w-[43%] md:left-[53%] md:w-[44%]',
             )}
           >
-            <img
-              src={nextSlide.secondaryImage}
+            <OptimizedPicture
+              picture={nextSlide.secondary}
               alt=""
+              sizes={SLIDER_PEEK_SIZES}
               className="h-[clamp(108px,29vw,338px)] w-full object-cover min-[500px]:h-[clamp(154px,25vw,338px)]"
               style={{ objectPosition: nextSlide.secondaryObjectPosition ?? 'center' }}
+              loading="lazy"
+              fetchPriority="low"
             />
           </figure>
         ) : null}
