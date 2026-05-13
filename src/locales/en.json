@@ -1,0 +1,95 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About us",
+    "contact": "Contact",
+    "services": "Services",
+    "bookNow": "Book Now"
+  },
+  "home": {
+    "welcome": "Welcome",
+    "hotelName": "Al-Qasr Hotel",
+    "intro": "Al-Qasr Hotel is one of the projects of Al-Rayyan Real Estate and Investment Company, reflecting the values of authentic Palestinian hospitality and distinguished hospitality experiences. Located away from the hustle and bustle of the city center, the hotel offers guests easy access to key facilities and attractions."
+  },
+  "services": {
+    "title": "Our Services",
+    "subtitle": "Discover our exclusive offers and packages",
+    "roomsTitle": "Our Rooms",
+    "roomsSubtitle": "Choose from our selection of comfortable and elegant rooms",
+    "hallsTitle": "Event Halls",
+    "hallsSubtitle": "Host your special events in our elegant and versatile event halls",
+    "smallHall": "Small Event Hall",
+    "smallHallSize": "Up to 350 guests",
+    "smallHallDesc": "Intimate setting with professional meeting facilities and high-speed WiFi. Ideal for business meetings and small gatherings.",
+    "largeHall": "Large Event Hall",
+    "largeHallSize": "Up to 500 guests",
+    "largeHallDesc": "Modern audio-visual equipment, elegant interior design, and flexible seating arrangements. Perfect for weddings and large events.",
+    "bookHall": "To Book Your Hall",
+    "bookHallDesc": "Contact us by phone to reserve your event hall and discuss your requirements.",
+    "callUs": "Call us",
+    "packagesTitle": "Special Packages",
+    "packagesSubtitle": "Discover our exclusive offers and packages",
+    "weddingPackage": "Wedding Package",
+    "weddingPoints": [
+      "Hall reservation at a special and suitable price",
+      "Full hall decoration in cooperation with specialized partners",
+      "Complete hospitality and service team provided by the hotel",
+      "Serving premium drinks and hospitality for the guests",
+      "Special and elegant preparations for the wedding night",
+      "Complimentary night for the newlyweds in our luxurios suite"
+    ],
+    "customPackages": "Custom Packages Available",
+    "customDesc": "Looking for something specific? Contact us to create a custom package tailored to your needs.",
+    "contactUs": "Contact Us",
+    "restaurant": "Restaurant",
+    "restaurantDesc": "Savor the flavors of Palestine and international cuisine in our signature restaurant.",
+    "twinRoom": "Twin Room",
+    "twinRoomDesc": "Comfortable single occupancy room with modern amenities",
+    "doubleRoom": "Double Room",
+    "doubleRoomDesc": "Spacious room with double bed for couples",
+    "tripleRoom": "Triple Room",
+    "tripleRoomDesc": "Perfect for small families or groups of three",
+    "quadRoom": "Quad Room",
+    "quadRoomDesc": "Ideal for families with multiple guests"
+  },
+  "booking": {
+    "title": "Book Your Stay",
+    "subtitle": "Fill in the details below to check availability and make your reservation",
+    "infoTitle": "Booking Information",
+    "checkIn": "Check-in time: 2:00 PM",
+    "checkOut": "Check-out time: 12:00 PM",
+    "flexibleTime": "Early check-in and late check-out available upon request",
+    "cancellation": "Cancellation policy: Free cancellation up to 24 hours before check-in",
+    "groupBookings": "For group bookings or special requests, please contact us directly"
+  },
+  "footer": {
+    "followUs": "Follow Us",
+    "contact": "Contact",
+    "phone": "Phone",
+    "email": "Email",
+    "address": "Address",
+    "addressValue": "Nablus, Palestine"
+  },
+  "bookingForm": {
+    "fullNameLabel": "Full Name",
+    "fullNamePlaceholder": "Enter your full name",
+    "phoneLabel": "Phone Number (WhatsApp)",
+    "phonePlaceholder": "5xxxxxxx",
+    "checkInLabel": "Check In",
+    "checkOutLabel": "Check Out",
+    "roomTypeLabel": "Room Type",
+    "roomTypePlaceholder": "Select room type",
+    "roomTypes": {
+      "standard": "Standard Room",
+      "deluxe": "Deluxe Room",
+      "suite": "Luxury Suite",
+      "penthouse": "Penthouse"
+    },
+    "adultsLabel": "Number of Adults",
+    "childrenLabel": "Number of Children",
+    "submitButton": "Book Now",
+    "sending": "Sending...",
+    "successMessage": "Booking request sent successfully!",
+    "errorMessage": "Failed to send request. Please try again or contact us via WhatsApp."
+  }
+}
