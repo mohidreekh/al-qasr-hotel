@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next'
 import facebookIcon from '../assets/icons8-facebook-48-1.png'
 import instagramIcon from '../assets/icons8-instagram-48-1.png'
 import locationIcon from '../assets/icons8-location-50-1.png'
@@ -28,16 +29,16 @@ type LuxuryFooterProps = {
 const cx = (...classes: Array<string | false | undefined>) =>
   classes.filter(Boolean).join(' ')
 
-const defaultSocialLinks: FooterLink[] = [
+const getSocialLinks = (): FooterLink[] => [
   { label: 'Facebook', href: '#', iconSrc: facebookIcon },
   { label: 'Instagram', href: '#', iconSrc: instagramIcon },
   { label: 'Tik Tok', href: '#', iconSrc: tiktokIcon },
 ]
 
-const defaultContactItems: FooterContact[] = [
-  { label: 'Phone', value: '+972 59-311-5510', href: 'tel:+972593115510', iconSrc: phoneIcon },
-  { label: 'Email', value: 'info@alqasrhotel.com', href: 'mailto:info@alqasrhotel.com', iconSrc: mailIcon },
-  { label: 'Address', value: 'Nablus, Palestine', iconSrc: locationIcon },
+const getContactItems = (t: any): FooterContact[] => [
+  { label: t('footer.phone'), value: '+970 59-311-5510', href: 'tel:+970593115510', iconSrc: phoneIcon },
+  { label: t('footer.email'), value: 'awwad.hamdan@alqaser.com', href: 'mailto:awwad.hamdan@alqaser.com', iconSrc: mailIcon },
+  { label: t('footer.address'), value: t('footer.addressValue'), iconSrc: locationIcon },
 ]
 
 const footerSurfaceStyle = {
@@ -49,9 +50,13 @@ const footerSurfaceStyle = {
 
 function LuxuryFooter({
   className,
-  socialLinks = defaultSocialLinks,
-  contactItems = defaultContactItems,
+  socialLinks,
+  contactItems,
 }: LuxuryFooterProps) {
+  const { t } = useTranslation()
+  const links = socialLinks || getSocialLinks()
+  const items = contactItems || getContactItems(t)
+
   return (
     <footer
       className={cx(
@@ -68,11 +73,11 @@ function LuxuryFooter({
             id="luxury-footer-social"
             className="text-center font-['Roboto',sans-serif] text-[clamp(22px,5vw,44px)] font-bold leading-none tracking-wide"
           >
-            Follow Us
+            {t('footer.followUs')}
           </h2>
 
           <ul className="mx-auto mt-[clamp(20px,5vw,40px)] flex w-full max-w-[18rem] flex-col items-center gap-[clamp(16px,4.5vw,34px)] md:max-w-none md:items-start">
-            {socialLinks.map(({ label, href, iconSrc, ariaLabel }) => (
+            {links.map(({ label, href, iconSrc, ariaLabel }) => (
               <li key={label} className="w-full">
                 <a
                   href={href}
@@ -96,11 +101,11 @@ function LuxuryFooter({
             id="luxury-footer-contact"
             className="text-center font-['Roboto',sans-serif] text-[clamp(22px,5vw,44px)] font-bold leading-none tracking-wide"
           >
-            Contact
+            {t('footer.contact')}
           </h2>
 
           <ul className="mx-auto mt-[clamp(20px,5vw,40px)] flex w-full max-w-[26rem] flex-col items-center gap-[clamp(16px,4.5vw,34px)] md:items-start">
-            {contactItems.map(({ label, value, href, iconSrc }) => {
+            {items.map(({ label, value, href, iconSrc }) => {
               const content = (
                 <>
                   <img

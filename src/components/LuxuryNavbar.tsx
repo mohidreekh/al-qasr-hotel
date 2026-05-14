@@ -1,8 +1,10 @@
 import { useId, useState } from 'react'
+import { useTranslation } from 'react-i18next'
 import defaultLogo from '../assets/al-qasr-logo.png'
 import usaFlag from '../assets/icons8-usa-flag-48-1.png'
 
 export type LuxuryNavItem = {
+  id?: string
   label: string
   href: string
   accent?: boolean
@@ -16,12 +18,12 @@ type LuxuryNavbarProps = {
   className?: string
 }
 
-const defaultLinks: LuxuryNavItem[] = [
-  { label: 'Home', href: '#' },
-  { label: 'About us', href: '#' },
-  { label: 'Contact', href: '#' },
-  { label: 'Services', href: '#' },
-  { label: 'Book Now', href: '#', accent: true },
+const getDefaultLinks = (t: any): LuxuryNavItem[] => [
+  { id: 'home', label: t('nav.home'), href: '/' },
+  { id: 'about', label: t('nav.about'), href: '#' },
+  { id: 'contact', label: t('nav.contact'), href: '/contact' },
+  { id: 'services', label: t('nav.services'), href: '/services' },
+  { id: 'bookNow', label: t('nav.bookNow'), href: '/booking', accent: true },
 ]
 
 const shellPath =
@@ -33,15 +35,25 @@ const cx = (...classes: Array<string | false | undefined>) =>
 function LuxuryNavbar({
   logoSrc = defaultLogo,
   logoAlt = 'Al-Qasr Hotel',
-  links = defaultLinks,
-  activeLabel = 'Home',
+  links,
+  activeLabel,
   className,
 }: LuxuryNavbarProps) {
+  const { t, i18n } = useTranslation()
+  const navLinks = links || getDefaultLinks(t)
+  const [isMenuOpen, setIsMenuOpen] = useState(false)
   const reactId = useId()
   const svgId = reactId.replace(/:/g, '')
-  const [isMenuOpen, setIsMenuOpen] = useState(false)
   const fillId = `${svgId}-luxury-navbar-fill`
   const shadowId = `${svgId}-luxury-navbar-shadow`
+
+  const currentLanguage = i18n.language
+  const isArabic = currentLanguage === 'ar'
+
+  const toggleLanguage = () => {
+    const newLang = isArabic ? 'en' : 'ar'
+    i18n.changeLanguage(newLang)
+  }
 
   return (
     <header
@@ -103,21 +115,26 @@ function LuxuryNavbar({
           />
         </a>
 
-        <div className="absolute right-[4.8%] top-[6.5%] z-20 flex items-center gap-1 pr-1 font-['Kurale',serif] text-[10px] font-normal leading-none text-white min-[500px]:right-[0.8%] min-[500px]:top-[2.6%] sm:text-[clamp(11px,1.1vw,18px)]">
-          <img
-            src={usaFlag}
-            alt=""
-            className="h-[9px] w-[17px] rounded-[1px] object-cover shadow-[0_0_5px_rgba(255,255,255,0.2)] sm:h-[14px] sm:w-7"
-          />
-          <span>EN</span>
-        </div>
+        <button
+          onClick={toggleLanguage}
+          className="absolute right-[4.8%] top-[6.5%] z-20 flex items-center gap-1 pr-1 font-['Kurale',serif] text-[10px] font-normal leading-none text-white transition-opacity hover:opacity-80 min-[500px]:right-[0.8%] min-[500px]:top-[2.6%] sm:text-[clamp(11px,1.1vw,18px)]"
+        >
+          {!isArabic && (
+            <img
+              src={usaFlag}
+              alt=""
+              className="h-[9px] w-[17px] rounded-[1px] object-cover shadow-[0_0_5px_rgba(255,255,255,0.2)] sm:h-[14px] sm:w-7"
+            />
+          )}
+          <span>{isArabic ? 'EN' : 'AR'}</span>
+        </button>
 
         <nav
           aria-label="Primary navigation"
           className="absolute right-[5.6%] top-[14.7%] z-20 hidden items-center gap-[clamp(14px,3.08vw,56px)] font-['Kurale',serif] font-normal leading-none text-white min-[500px]:flex"
         >
-          {links.map((link) => {
-            const isActive = link.label === activeLabel
+          {navLinks.map((link) => {
+            const isActive = link.label === activeLabel || link.id === activeLabel
 
             return (
               <a
@@ -182,8 +199,8 @@ function LuxuryNavbar({
           )}
         >
           <nav aria-label="Mobile navigation" className="flex flex-col px-5 py-4 font-['Kurale',serif] text-base font-normal text-white">
-            {links.map((link) => {
-              const isActive = link.label === activeLabel
+            {navLinks.map((link) => {
+              const isActive = link.label === activeLabel || link.id === activeLabel
 
               return (
                 <a
