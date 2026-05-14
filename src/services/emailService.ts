@@ -1,11 +1,11 @@
 import emailjs from '@emailjs/browser';
 
-const SERVICE_ID = 'service_rexjxhg';
-const PUBLIC_KEY = '3bjDk8iI2SzgcLGun';
+const SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+const PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
 
 export const EMAIL_TEMPLATES = {
-  BOOKING: 'template_fsmbkdc',
-  CONTACT: 'template_bynsbf1',
+  BOOKING: import.meta.env.VITE_EMAILJS_TEMPLATE_BOOKING,
+  CONTACT: import.meta.env.VITE_EMAILJS_TEMPLATE_CONTACT,
 };
 
 export const sendEmail = async (templateId: string, templateParams: Record<string, any>) => {
