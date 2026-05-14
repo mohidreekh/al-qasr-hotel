@@ -36,8 +36,8 @@ const getSocialLinks = (): FooterLink[] => [
 ]
 
 const getContactItems = (t: any): FooterContact[] => [
-  { label: t('footer.phone'), value: '+972 59-311-5510', href: 'tel:+972593115510', iconSrc: phoneIcon },
-  { label: t('footer.email'), value: 'info@alqasrhotel.com', href: 'mailto:info@alqasrhotel.com', iconSrc: mailIcon },
+  { label: t('footer.phone'), value: '+970 59-311-5510', href: 'tel:+970593115510', iconSrc: phoneIcon },
+  { label: t('footer.email'), value: 'awwad.hamdan@alqaser.com', href: 'mailto:awwad.hamdan@alqaser.com', iconSrc: mailIcon },
   { label: t('footer.address'), value: t('footer.addressValue'), iconSrc: locationIcon },
 ]
 

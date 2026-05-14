@@ -91,5 +91,24 @@
     "sending": "Sending...",
     "successMessage": "Booking request sent successfully!",
     "errorMessage": "Failed to send request. Please try again or contact us via WhatsApp."
+  },
+  "contactPage": {
+    "title": "contact us",
+    "subtitle": "Get in touch with us for any inquiries or reservations",
+    "infoTitle": "Contact Information",
+    "phone": "Phone",
+    "email": "Email",
+    "address": "Address",
+    "addressValue": "Nablus City, Palestine",
+    "sendTitle": "Send us a Message",
+    "form": {
+      "fullName": "Full Name",
+      "phone": "Phone Number",
+      "email": "Email Address",
+      "subject": "Subject",
+      "message": "Message",
+      "submit": "Send Message"
+    },
+    "location": "Location"
   }
 }

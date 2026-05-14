@@ -1,6 +1,6 @@
 import React, { useState, useRef } from 'react';
-import emailjs from '@emailjs/browser';
 import { useTranslation } from 'react-i18next';
+import { sendBookingEmail } from '../services/emailService';
 
 const BookingForm: React.FC = () => {
   const { t, i18n } = useTranslation();
@@ -27,14 +27,7 @@ const handleSubmit = async (e: React.FormEvent) => {
     setIsSending(true);
     setSubmitStatus('idle');
 
-        // EmailJS keys - these should be provided by the user later
-    // For now, I'm setting up the structure
-    const SERVICE_ID = 'service_rexjxhg';
-    const TEMPLATE_ID = 'template_fsmbkdc';
-    const PUBLIC_KEY = '3bjDk8iI2SzgcLGun';
-
-
-    const templateParams = {
+    await sendBookingEmail({
       fullName,
       phoneNumber: `${phoneNumber}`,
       checkIn,
@@ -42,14 +35,7 @@ const handleSubmit = async (e: React.FormEvent) => {
       roomType,
       adults,
       children,
-    };
-
-    await emailjs.send(
-      SERVICE_ID,
-      TEMPLATE_ID,
-      templateParams,
-      PUBLIC_KEY
-    );
+    });
 
     setSubmitStatus('success');
 
