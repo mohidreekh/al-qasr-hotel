@@ -1,15 +1,21 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import LuxuryNavbar from '../components/LuxuryNavbar';
+import { getDefaultLinks } from '../utils/navigation';
 import LuxuryFooter from '../components/LuxuryFooter';
 import BookingForm from '../components/BookingForm';
 
 const BookingPage: React.FC = () => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   
   return (
     <div className="min-h-screen bg-[#F5F5F5] font-['Kurale',serif] flex flex-col">
-      <LuxuryNavbar activeLabel="bookNow" />
+      <LuxuryNavbar
+        activeId="bookNow"
+        links={getDefaultLinks(t)}
+        currentLanguage={i18n.language}
+        onLanguageToggle={() => i18n.changeLanguage(i18n.language === 'ar' ? 'en' : 'ar')}
+      />
 
       <main className="flex-1 mx-auto w-full max-w-[1400px] px-6 lg:px-12 py-10 md:py-16">
         <header className="mb-12 text-center">

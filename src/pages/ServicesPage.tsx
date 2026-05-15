@@ -1,23 +1,26 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import LuxuryNavbar from '../components/LuxuryNavbar';
+import { getDefaultLinks } from '../utils/navigation';
 import LuxuryFooter from '../components/LuxuryFooter';
 import ServiceCard from '../components/ServiceCard';
 import InfoCard from '../components/InfoCard';
 import PackageCard from '../components/PackageCard';
+import OptimizedPicture from '../components/OptimizedPicture';
+import { SERVICE_FEATURE_IMAGE_SIZES } from '../lib/serviceImageSizes';
 
-import hotelNightSign from '../assets/hotel-night-sign.png';
+import hotelNightSign from '../assets/hotel-night-sign.png?w=400;800;1200;1600&format=avif;webp;jpeg&quality=68&effort=6&as=picture';
 
-import doubleRoom from '../assets/double-room.png';
-import tripleRoom from '../assets/triple-room.png';
-import quadRoom from '../assets/quad-room.png';
-import twinRoom from '../assets/twin-room.png';
+import doubleRoom from '../assets/double-room.png?w=400;800;1200&format=avif;webp;jpeg&quality=68&effort=6&as=picture';
+import tripleRoom from '../assets/triple-room.png?w=400;800;1200&format=avif;webp;jpeg&quality=68&effort=6&as=picture';
+import quadRoom from '../assets/quad-room.png?w=400;800;1200&format=avif;webp;jpeg&quality=68&effort=6&as=picture';
+import twinRoom from '../assets/twin-room.png?w=400;800;1200&format=avif;webp;jpeg&quality=68&effort=6&as=picture';
 
-import largeHall from '../assets/large-events-hall.png';
-import smallHall from '../assets/small-events-hall.png';
+import largeHall from '../assets/large-events-hall.png?w=400;800;1200&format=avif;webp;jpeg&quality=68&effort=6&as=picture';
+import smallHall from '../assets/small-events-hall.png?w=400;800;1200&format=avif;webp;jpeg&quality=68&effort=6&as=picture';
 
 const ServicesPage: React.FC = () => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
 
   const rooms = [
     {
@@ -46,9 +49,14 @@ const ServicesPage: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-[#F5F5F5] font-['Kurale',serif]">
-      <LuxuryNavbar activeLabel="services" />
+      <LuxuryNavbar
+        activeId="services"
+        links={getDefaultLinks(t)}
+        currentLanguage={i18n.language}
+        onLanguageToggle={() => i18n.changeLanguage(i18n.language === 'ar' ? 'en' : 'ar')}
+      />
 
-      <main className="mx-auto max-w-[1400px] px-6 lg:px-12">
+      <main className="mx-auto max-w-[1400px] px-6 pt-2 lg:px-12">
         <header className="mb-16 text-center">
           <h1 className="mb-6 text-5xl font-normal text-[#304759] md:text-7xl lg:text-8xl">
             {t('services.title')}
@@ -72,7 +80,7 @@ const ServicesPage: React.FC = () => {
                 key={index}
                 title={room.title}
                 description={room.description}
-                imageSrc={room.image}
+                picture={room.image}
               />
             ))}
           </div>
@@ -90,10 +98,12 @@ const ServicesPage: React.FC = () => {
             <div className="grid grid-cols-1 gap-12 lg:grid-cols-2">
 
               <div className="overflow-hidden rounded-2xl md:rounded-3xl">
-                <img 
-                  src={smallHall} 
-                  alt={t('services.smallHall')} 
-                  className="h-full w-full object-cover" 
+                <OptimizedPicture
+                  picture={smallHall}
+                  alt={t('services.smallHall')}
+                  sizes={SERVICE_FEATURE_IMAGE_SIZES}
+                  className="h-full w-full object-cover"
+                  loading="lazy"
                 />
               </div>
 
@@ -108,10 +118,12 @@ const ServicesPage: React.FC = () => {
 
             <div className="grid grid-cols-1 gap-12 lg:grid-cols-2">
               <div className="order-2 overflow-hidden rounded-2xl md:order-1 md:rounded-3xl">
-                <img 
-                  src={largeHall} 
-                  alt={t('services.largeHall')} 
-                  className="h-full w-full object-cover" 
+                <OptimizedPicture
+                  picture={largeHall}
+                  alt={t('services.largeHall')}
+                  sizes={SERVICE_FEATURE_IMAGE_SIZES}
+                  className="h-full w-full object-cover"
+                  loading="lazy"
                 />
               </div>
               <InfoCard
@@ -145,12 +157,14 @@ const ServicesPage: React.FC = () => {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 gap-12 lg:grid-cols-2">
-             <div className="overflow-hidden rounded-2xl md:rounded-3xl">
-                <img 
-                  src={hotelNightSign} 
-                  alt={t('services.weddingPackage')} 
-                  className="h-full w-full object-cover" 
+          <div className="grid grid-cols-1 items-stretch gap-12 lg:grid-cols-2">
+             <div className="min-h-[280px] overflow-hidden rounded-2xl md:min-h-0 md:rounded-3xl">
+                <OptimizedPicture
+                  picture={hotelNightSign}
+                  alt={t('services.weddingPackage')}
+                  sizes={SERVICE_FEATURE_IMAGE_SIZES}
+                  className="h-full min-h-[280px] w-full object-cover md:min-h-full"
+                  loading="lazy"
                 />
               </div>
               <PackageCard
