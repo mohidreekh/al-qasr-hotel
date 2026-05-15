@@ -65,7 +65,7 @@ export default function ContactForm() {
       <form onSubmit={handleSubmit} className="grid gap-8">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           <div className="space-y-3">
-            <label className="block text-[#304759]/70 font-['Kurale',serif] text-lg px-1">
+            <label className="block text-[#304759]/70 font-['Kurale',serif] text-xl px-1">
               {t('contactPage.form.fullName')}
             </label>
             <input
@@ -73,26 +73,26 @@ export default function ContactForm() {
               required
               value={fullName}
               onChange={(e) => setFullName(e.target.value)}
-              className="w-full px-6 py-5 rounded-2xl bg-[#f8f9fa] border-none focus:bg-white focus:ring-[3px] focus:ring-[#304759]/10 outline-none transition-all text-[#304759] font-medium shadow-inner"
+              className="w-full px-6 py-5 rounded-2xl bg-[#f8f9fa] border-none focus:bg-white focus:ring-[3px] focus:ring-[#304759]/10 outline-none transition-all text-[#304759] text-xl font-medium shadow-inner"
               placeholder={t('contactPage.form.fullName')}
             />
           </div>
           <div className="space-y-3">
-            <label className="block text-[#304759]/70 font-['Kurale',serif] text-lg px-1">
+            <label className="block text-[#304759]/70 font-['Kurale',serif] text-xl px-1">
               {t('contactPage.form.phone')}
             </label>
             <input
               type="tel"
               value={phone}
               onChange={(e) => setPhone(e.target.value)}
-              className="w-full px-6 py-5 rounded-2xl bg-[#f8f9fa] border-none focus:bg-white focus:ring-[3px] focus:ring-[#304759]/10 outline-none transition-all text-[#304759] font-medium shadow-inner"
+              className="w-full px-6 py-5 rounded-2xl bg-[#f8f9fa] border-none focus:bg-white focus:ring-[3px] focus:ring-[#304759]/10 outline-none transition-all text-[#304759] text-xl font-medium shadow-inner"
               placeholder="+970"
             />
           </div>
         </div>
 
         <div className="space-y-3">
-          <label className="block text-[#304759]/70 font-['Kurale',serif] text-lg px-1">
+          <label className="block text-[#304759]/70 font-['Kurale',serif] text-xl px-1">
             {t('contactPage.form.email')}
           </label>
           <input
@@ -106,7 +106,7 @@ export default function ContactForm() {
         </div>
 
         <div className="space-y-3">
-          <label className="block text-[#304759]/70 font-['Kurale',serif] text-lg px-1">
+          <label className="block text-[#304759]/70 font-['Kurale',serif] text-xl px-1">
             {t('contactPage.form.subject')}
           </label>
           <input
@@ -119,7 +119,7 @@ export default function ContactForm() {
         </div>
 
         <div className="space-y-3">
-          <label className="block text-[#304759]/70 font-['Kurale',serif] text-lg px-1">
+          <label className="block text-[#304759]/70 font-['Kurale',serif] text-xl px-1">
             {t('contactPage.form.message')}
           </label>
           <textarea
@@ -127,7 +127,7 @@ export default function ContactForm() {
             required
             value={message}
             onChange={(e) => setMessage(e.target.value)}
-            className="w-full px-6 py-5 rounded-2xl bg-[#f8f9fa] border-none focus:bg-white focus:ring-[3px] focus:ring-[#304759]/10 outline-none transition-all text-[#304759] font-medium shadow-inner resize-none"
+            className="w-full px-6 py-5 rounded-2xl bg-[#f8f9fa] border-none focus:bg-white focus:ring-[3px] focus:ring-[#304759]/10 outline-none transition-all text-[#304759] text-xl font-medium shadow-inner resize-none"
             placeholder={t('contactPage.form.message')}
           ></textarea>
         </div>
@@ -136,19 +136,19 @@ export default function ContactForm() {
           <button
             type="submit"
             disabled={isSending}
-            className="mt-4 w-full sm:w-auto self-start px-12 py-5 rounded-2xl bg-[#304759] text-white font-['Kurale',serif] text-xl font-medium shadow-[0_15px_40px_rgba(48,71,89,0.25)] hover:bg-[#1a2b38] hover:translate-y-[-3px] active:translate-y-[0px] transition-all duration-300 disabled:opacity-70 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+            className="mt-4 w-full sm:w-auto self-start px-12 py-5 rounded-2xl bg-[#304759] text-white font-['Kurale',serif] text-2xl font-medium shadow-[0_15px_40px_rgba(48,71,89,0.25)] hover:bg-[#1a2b38] hover:translate-y-[-3px] active:translate-y-[0px] transition-all duration-300 disabled:opacity-70 disabled:cursor-not-allowed flex items-center justify-center gap-2"
           >
             {isSending && <Loader2 className="w-5 h-5 animate-spin" />}
             {isSending ? t('bookingForm.sending') : t('contactPage.form.submit')}
           </button>
           
           {submitStatus === 'success' && (
-            <p className="text-green-600 font-medium animate-fade-in">
+            <p className="text-green-600 text-lg font-medium animate-fade-in">
               {t('bookingForm.successMessage')}
             </p>
           )}
           {submitStatus === 'error' && (
-            <p className="text-red-500 font-medium">
+            <p className="text-red-500 text-lg font-medium">
               {t('bookingForm.errorMessage')}
             </p>
           )}

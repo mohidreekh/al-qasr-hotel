@@ -17,7 +17,7 @@ const BookingPage: React.FC = () => {
         onLanguageToggle={() => i18n.changeLanguage(i18n.language === 'ar' ? 'en' : 'ar')}
       />
 
-      <main className="flex-1 mx-auto w-full max-w-[1400px] px-6 lg:px-12 py-10 md:py-16">
+      <main className="flex-1 mx-auto lg:-mt-[clamp(80px,12vw,200px)] w-full max-w-[1400px] px-6 lg:px-12 py-10 md:py-16">
         <header className="mb-12 text-center">
           <h1 className="mb-6 text-5xl md:text-7xl lg:text-[100px] font-normal text-[#304759]">
             {t('booking.title')}

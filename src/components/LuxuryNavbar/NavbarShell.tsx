@@ -14,7 +14,8 @@ export function NavbarShell() {
       aria-hidden="true"
       viewBox="0 0 1280 492"
       preserveAspectRatio="none"
-      className="absolute inset-0 z-0 h-full w-full overflow-visible"
+      // className="absolute inset-0 z-0 h-full w-full overflow-visible"
+      className="absolute inset-0 z-0 h-[400px] w-full overflow-visible scale-x-110"
     >
       <defs>
         <linearGradient id={fillId} x1="0" x2="1" y1="0" y2="1">

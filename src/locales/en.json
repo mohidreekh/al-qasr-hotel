@@ -95,7 +95,7 @@
     "fullNameLabel": "Full Name",
     "fullNamePlaceholder": "Enter your full name",
     "phoneLabel": "Phone Number (WhatsApp)",
-    "phonePlaceholder": "5xxxxxxx",
+    "phonePlaceholder": "+970 5xxxxxxx",
     "checkInLabel": "Check In",
     "checkOutLabel": "Check Out",
     "roomTypeLabel": "Room Type",

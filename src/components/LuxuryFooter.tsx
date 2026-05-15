@@ -79,10 +79,10 @@ function LuxuryFooter({ className = '' }: LuxuryFooterProps) {
                   <Icon className="h-5 w-5" strokeWidth={1.75} />
                 </IconTile>
                 <span className="min-w-0 text-start">
-                  <span className="block text-xs font-medium uppercase tracking-wider text-white/45">
+                  <span className="block text-base font-medium uppercase tracking-wider text-white/45">
                     {label}
                   </span>
-                  <span className="mt-1 block font-['Kurale',serif] text-lg leading-snug text-white/95 [direction:ltr]">
+                  <span className="mt-1 block font-['Kurale',serif] text-xl leading-snug text-white/95 [direction:ltr]">
                     {value}
                   </span>
                 </span>
@@ -109,14 +109,14 @@ function LuxuryFooter({ className = '' }: LuxuryFooterProps) {
               key={label}
               href={href}
               aria-label={label}
-              className="flex h-12 w-12 items-center justify-center rounded-full bg-white/10 ring-1 ring-white/15 transition hover:bg-[#C69479]/25 hover:ring-[#C69479]/40"
+              className="flex h-16 w-16 items-center justify-center rounded-full bg-white/10 ring-1 ring-white/15 transition hover:bg-[#C69479]/25 hover:ring-[#C69479]/40"
             >
-              <img src={icon} alt="" className="h-6 w-6 object-contain opacity-90" />
+              <img src={icon} alt="" className="h-10 w-10 object-contain opacity-90" />
             </a>
           ))}
         </div>
 
-        <p className="mt-10 text-sm text-white/35">
+        <p className="mt-10 text-base text-white/35">
           © {year} {t('home.hotelName')}
         </p>
       </div>

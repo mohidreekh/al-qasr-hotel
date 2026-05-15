@@ -58,7 +58,7 @@ function HomePage() {
         onLanguageToggle={() => i18n.changeLanguage(i18n.language === 'ar' ? 'en' : 'ar')}
       />
 
-      <main className="mx-auto flex w-full max-w-[1456px] flex-col items-center px-5 pb-[clamp(62px,9.8vw,120px)] sm:px-6 lg:px-8">
+      <main className="mx-auto lg:-mt-[clamp(80px,12vw,200px)] flex w-full max-w-[1456px] flex-col items-center px-5 pb-[clamp(62px,9.8vw,120px)] sm:px-6 lg:px-8">
         <section aria-labelledby="home-welcome-title" className="w-full text-center">
           <h1
             id="home-welcome-title"
@@ -70,7 +70,7 @@ function HomePage() {
             {t('home.hotelName')}
           </p>
 
-          <p className="mx-auto mt-[clamp(38px,8vw,106px)] max-w-[1344px] font-['Kurale',serif] text-[clamp(14px,3.9vw,35px)] font-normal leading-[1.5] text-[#304759] sm:leading-[1.45]">
+          <p className="mx-auto mt-[clamp(38px,8vw,106px)] max-w-[1344px] font-['Kurale',serif] text-[clamp(18px,4vw,35px)] font-normal leading-[1.5] text-[#304759] sm:leading-[1.45]">
             {t('home.intro')}
           </p>
         </section>
