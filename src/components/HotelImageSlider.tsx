@@ -85,8 +85,6 @@ function HotelImageSlider({
       className={cx('mt-8 w-full max-w-[1288px] sm:mt-11 md:mt-14', className)}
     >
       <div className="relative h-[clamp(260px,74vw,700px)] min-[500px]:h-[clamp(320px,56vw,700px)]">
-        <div className="pointer-events-none absolute inset-x-[2%] top-[6%] h-[80%] rounded-[30px] bg-[radial-gradient(circle_at_28%_34%,rgba(255,255,255,0.7),rgba(255,255,255,0)_34%),radial-gradient(circle_at_78%_70%,rgba(198,148,121,0.14),rgba(198,148,121,0)_35%)] opacity-80 blur-3xl sm:inset-x-[4%] sm:top-[7%] sm:rounded-[36px]" />
-
         <figure
           className={cx(
             'absolute left-[2%] top-[clamp(6px,1vw,20px)] z-20 w-[74%] overflow-hidden rounded-[18px] border border-white/65 bg-white/70 shadow-[0_26px_48px_rgba(20,32,42,0.2),0_10px_22px_rgba(198,148,121,0.12)] ring-1 ring-white/45 transition-[transform,opacity,left,top,width,height,filter] duration-[1100ms] ease-[cubic-bezier(0.22,1,0.36,1)] min-[500px]:left-[8%] min-[500px]:w-[58%]',

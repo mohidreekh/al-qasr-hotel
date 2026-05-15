@@ -1,2 +1,28 @@
 @import url('https://fonts.googleapis.com/css2?family=Kurale&family=Roboto:wght@400;700&display=swap');
 @import "tailwindcss";
+
+.color-mode-page {
+  transition: filter 240ms ease;
+}
+
+html[data-color-mode='contrast'] .color-mode-page {
+  filter: contrast(1.24) saturate(1.08) brightness(0.98);
+}
+
+html[data-color-mode='redGreen'] .color-mode-page {
+  filter: saturate(1.32) hue-rotate(-14deg) contrast(1.1);
+}
+
+html[data-color-mode='blueYellow'] .color-mode-page {
+  filter: saturate(1.2) hue-rotate(22deg) contrast(1.08);
+}
+
+html[data-color-mode='gray'] .color-mode-page {
+  filter: grayscale(1) contrast(1.12) brightness(1.02);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .color-mode-page {
+    transition: none;
+  }
+}

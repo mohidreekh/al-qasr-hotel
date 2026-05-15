@@ -28,18 +28,6 @@ const softSheenStyle: CSSProperties = {
     'translate3d(calc((var(--cursor-x) - 50vw) * -0.035), calc((var(--cursor-y) - 50vh) * -0.02), 0) rotate(-8deg)',
 }
 
-const cursorGlowStyle: CSSProperties = {
-  backgroundImage: [
-    'radial-gradient(circle 320px at var(--cursor-x) var(--cursor-y), rgba(255,255,255,0.94) 0%, rgba(255,255,255,0.76) 10%, rgba(211,162,130,0.24) 24%, rgba(48,71,89,0.09) 40%, transparent 66%)',
-    'radial-gradient(circle 520px at calc(var(--cursor-x) + 10vw) calc(var(--cursor-y) - 7vh), rgba(48,71,89,0.11) 0%, rgba(48,71,89,0.06) 26%, transparent 68%)',
-  ].join(', '),
-}
-
-const cursorRingStyle: CSSProperties = {
-  background:
-    'radial-gradient(circle 170px at var(--cursor-x) var(--cursor-y), rgba(255,255,255,0) 54%, rgba(198,148,121,0.24) 58%, rgba(255,255,255,0.16) 61%, rgba(255,255,255,0) 68%)',
-}
-
 function LuxuryPageBackground({ children }: LuxuryPageBackgroundProps) {
   return (
     <div
@@ -47,8 +35,6 @@ function LuxuryPageBackground({ children }: LuxuryPageBackgroundProps) {
       style={pageMotionVars}
     >
       <div aria-hidden="true" className="pointer-events-none absolute inset-0 z-0 overflow-hidden">
-        <div className="absolute inset-0 opacity-100" style={cursorGlowStyle} />
-        <div className="absolute inset-0 opacity-90" style={cursorRingStyle} />
         <div className="absolute inset-[-18%] opacity-90" style={ambientPatternStyle} />
         <div
           className="absolute left-[18%] top-[-18%] h-[130%] w-[58%] opacity-[0.45] blur-[1px]"

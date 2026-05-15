@@ -4,6 +4,7 @@ import { useTranslation } from 'react-i18next'
 import HotelImageSlider, {
   type HotelImageSlide,
 } from '../components/HotelImageSlider'
+import HomeRating from '../components/HomeRating'
 import LcpImagePreload from '../components/LcpImagePreload'
 import LuxuryNavbar from '../components/LuxuryNavbar'
 import { getDefaultLinks } from '../utils/navigation'
@@ -76,6 +77,7 @@ function HomePage() {
         </section>
 
         <HotelImageSlider slides={hotelSlides} autoPlay className="mt-[clamp(22px,5vw,56px)]" />
+        <HomeRating />
       </main>
 
       <Suspense fallback={null}>

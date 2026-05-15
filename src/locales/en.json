@@ -6,10 +6,29 @@
     "services": "Services",
     "bookNow": "Book Now"
   },
+  "accessibility": {
+    "colors": {
+      "button": "Display colors",
+      "title": "Display colors",
+      "default": "Original colors",
+      "contrast": "High contrast",
+      "redGreen": "Red / green help",
+      "blueYellow": "Blue / yellow help",
+      "gray": "Black and white"
+    }
+  },
   "home": {
     "welcome": "Welcome",
     "hotelName": "Al-Qasr Hotel",
-    "intro": "Al-Qasr Hotel is one of the projects of Al-Rayyan Real Estate and Investment Company, reflecting the values of authentic Palestinian hospitality and distinguished hospitality experiences. Located away from the hustle and bustle of the city center, the hotel offers guests easy access to key facilities and attractions."
+    "intro": "Al-Qasr Hotel is one of the projects of Al-Rayyan Real Estate and Investment Company, reflecting the values of authentic Palestinian hospitality and distinguished hospitality experiences. Located away from the hustle and bustle of the city center, the hotel offers guests easy access to key facilities and attractions.",
+    "rating": {
+      "subtitle": "Your Al-Qasr experience",
+      "title": "Rate Your Stay",
+      "averageLabel": "{{average}} out of 5",
+      "countLabel": "{{count}} guest ratings",
+      "thankYou": "Thank you. Your rating was saved.",
+      "starLabel": "Rate {{value}} out of 5"
+    }
   },
   "about": {
     "title": "About Us",
@@ -89,7 +108,7 @@
     "phone": "Phone",
     "email": "Email",
     "address": "Address",
-    "addressValue": "Nablus, Palestine"
+    "addressValue": "Nablus, Palestine , Street Omer Bin Al-Khattab"
   },
   "bookingForm": {
     "fullNameLabel": "Full Name",

@@ -49,11 +49,6 @@ function AboutPage() {
           </h2>
 
           <div className="relative mx-auto w-full max-w-[1080px]">
-            <div
-              aria-hidden="true"
-              className="pointer-events-none absolute inset-x-[5%] top-[6%] h-[88%] rounded-[34px] bg-[radial-gradient(circle_at_25%_28%,rgba(255,255,255,0.62),rgba(255,255,255,0)_34%),radial-gradient(circle_at_82%_70%,rgba(198,148,121,0.2),rgba(198,148,121,0)_38%)] opacity-80 blur-3xl"
-            />
-
             <figure className="relative overflow-hidden rounded-[30px] border border-[#d5aa93]/45 bg-white shadow-[0_18px_36px_rgba(20,32,42,0.12),0_8px_18px_rgba(198,148,121,0.08)] sm:rounded-[40px]">
               <img
                 src={aboutHotelInterior}

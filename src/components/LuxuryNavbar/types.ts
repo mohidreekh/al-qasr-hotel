@@ -3,6 +3,7 @@ export type LuxuryNavItem = {
   label: string
   href: string
   accent?: boolean
+  children?: LuxuryNavItem[]
 }
 
 export type LuxuryNavbarProps = {

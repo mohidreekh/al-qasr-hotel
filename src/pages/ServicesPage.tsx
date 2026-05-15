@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
+import { useLocation } from 'react-router-dom';
 import LuxuryNavbar from '../components/LuxuryNavbar';
 import { getDefaultLinks } from '../utils/navigation';
 import LuxuryFooter from '../components/LuxuryFooter';
@@ -27,6 +28,7 @@ import restaurant4 from '../assets/restaurant-image-4.png';
 
 const ServicesPage: React.FC = () => {
   const { t, i18n } = useTranslation();
+  const location = useLocation();
 
   const rooms = [
     {
@@ -53,6 +55,15 @@ const ServicesPage: React.FC = () => {
 
   const weddingPackagePoints = t('services.weddingPoints', { returnObjects: true }) as string[];
 
+  useEffect(() => {
+    if (!location.hash) {
+      return;
+    }
+
+    const target = document.getElementById(location.hash.slice(1));
+    target?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }, [location.hash]);
+
   return (
     <div className="min-h-screen bg-[#F5F5F5] font-['Kurale',serif]">
       <LuxuryNavbar
@@ -72,7 +83,7 @@ const ServicesPage: React.FC = () => {
           </p>
         </header>
 
-        <section className="mb-32">
+        <section id="rooms" className="mb-32 scroll-mt-8">
           <div className="mb-16 text-center">
             <h2 className="mb-4 text-5xl font-normal text-[#304759] md:text-7xl">{t('services.roomsTitle')}</h2>
             <p className="text-xl text-[#304759]/60 md:text-2xl">
@@ -92,7 +103,7 @@ const ServicesPage: React.FC = () => {
           </div>
         </section>
 
-        <section className="mb-32">
+        <section id="halls" className="mb-32 scroll-mt-8">
           <div className="mb-16 text-center">
             <h2 className="mb-4 text-5xl font-normal text-[#304759] md:text-7xl">{t('services.hallsTitle')}</h2>
             <p className="text-xl text-[#304759]/60 md:text-2xl">
@@ -155,7 +166,7 @@ const ServicesPage: React.FC = () => {
           </a>
         </section>
 
-        <section className="mb-32">
+        <section id="packages" className="mb-32 scroll-mt-8">
           <div className="mb-16 text-center">
             <h2 className="mb-4 text-5xl font-normal text-[#304759] md:text-7xl">{t('services.packagesTitle')}</h2>
             <p className="text-xl text-[#304759]/60 md:text-2xl">
@@ -193,7 +204,7 @@ const ServicesPage: React.FC = () => {
           </a>
         </section>
 
-        <section className="mb-0 text-center">
+        <section id="restaurant" className="mb-0 scroll-mt-8 text-center">
             <h2 className="mb-6 text-6xl font-normal text-[#304759] md:text-8xl">{t('services.restaurant')}</h2>
             <p className="mx-auto max-w-3xl text-2xl text-[#304759]/70">
               {t('services.restaurantDesc')}
