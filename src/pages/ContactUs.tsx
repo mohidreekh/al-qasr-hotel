@@ -23,13 +23,13 @@ function ContactUs() {
         onLanguageToggle={() => i18n.changeLanguage(i18n.language === 'ar' ? 'en' : 'ar')}
       />
 
-      <main className="mx-auto flex w-full max-w-[1456px] flex-col items-center px-5 pb-20 sm:px-6 lg:px-8">
+      <main className="mx-auto lg:-mt-[clamp(80px,12vw,200px)] flex w-full max-w-[1456px] flex-col items-center px-5 pb-20 sm:px-6 lg:px-8">
         {/* Header Section */}
         <section className="w-full text-center mb-12 sm:mb-20">
           <h1 className="font-['Kurale',serif] text-[clamp(48px,9vw,96px)] font-normal leading-tight text-[#304759] uppercase tracking-wide">
             {t('contactPage.title')}
           </h1>
-          <p className="mt-4 font-['Kurale',serif] text-[clamp(18px,2.5vw,28px)] font-normal text-[#304759]/70 max-w-2xl mx-auto leading-relaxed">
+          <p className="mt-4 font-['Kurale',serif] text-[clamp(20px,3vw,32px)] font-normal text-[#304759]/70 max-w-2xl mx-auto leading-relaxed">
             {t('contactPage.subtitle')}
           </p>
         </section>
@@ -48,10 +48,10 @@ function ContactUs() {
                     <Phone className="w-6 h-6" />
                   </div>
                   <div>
-                    <h3 className="font-['Kurale',serif] text-lg font-medium text-[#304759]/60 mb-0.5">
+                    <h3 className="font-['Kurale',serif] text-xl font-medium text-[#304759]/60 mb-0.5">
                       {t('contactPage.phone')}
                     </h3>
-                    <p className="text-xl font-medium text-[#304759] [direction:ltr] text-start tracking-tight">+970 59-311-5510</p>
+                    <p className="text-2xl font-medium text-[#304759] [direction:ltr] text-start tracking-tight">+970 59-311-5510</p>
                   </div>
                 </div>
 
@@ -60,10 +60,10 @@ function ContactUs() {
                     <Mail className="w-6 h-6" />
                   </div>
                   <div>
-                    <h3 className="font-['Kurale',serif] text-lg font-medium text-[#304759]/60 mb-0.5">
+                    <h3 className="font-['Kurale',serif] text-xl font-medium text-[#304759]/60 mb-0.5">
                       {t('contactPage.email')}
                     </h3>
-                    <p className="text-xl font-medium text-[#304759] break-all">awwad.hamdan@alqaser.com</p>
+                    <p className="text-2xl font-medium text-[#304759] break-all">awwad.hamdan@alqaser.com</p>
                   </div>
                 </div>
 
@@ -72,10 +72,10 @@ function ContactUs() {
                     <MapPin className="w-6 h-6" />
                   </div>
                   <div>
-                    <h3 className="font-['Kurale',serif] text-lg font-medium text-[#304759]/60 mb-0.5">
+                    <h3 className="font-['Kurale',serif] text-xl font-medium text-[#304759]/60 mb-0.5">
                       {t('contactPage.address')}
                     </h3>
-                    <p className="text-xl font-medium text-[#304759]">{t('contactPage.addressValue')}</p>
+                    <p className="text-2xl font-medium text-[#304759]">{t('contactPage.addressValue')}</p>
                   </div>
                 </div>
               </div>

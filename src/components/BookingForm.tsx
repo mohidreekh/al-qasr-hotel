@@ -103,7 +103,7 @@ const handleSubmit = async (e: React.FormEvent) => {
                   value={phoneNumber}
                   onChange={(e) => setPhoneNumber(e.target.value)}
                   placeholder={t('bookingForm.phonePlaceholder')}
-                  className="w-full h-20 md:h-24 ps-36 pe-8 rounded-full bg-[#F3F3F5] text-[#304759] font-['Kurale',serif] text-lg md:text-xl border-2 border-transparent focus:border-[#40647B]/30 focus:bg-white focus:shadow-md focus:outline-none transition-all duration-300"
+                  className="w-full h-20 md:h-24 ps-16 pe-8 rounded-full bg-[#F3F3F5] text-[#304759] font-['Kurale',serif] text-lg md:text-xl border-2 border-transparent focus:border-[#40647B]/30 focus:bg-white focus:shadow-md focus:outline-none transition-all duration-300"
                   required
                 />
               </div>

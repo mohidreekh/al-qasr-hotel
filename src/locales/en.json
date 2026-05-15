@@ -11,6 +11,27 @@
     "hotelName": "Al-Qasr Hotel",
     "intro": "Al-Qasr Hotel is one of the projects of Al-Rayyan Real Estate and Investment Company, reflecting the values of authentic Palestinian hospitality and distinguished hospitality experiences. Located away from the hustle and bustle of the city center, the hotel offers guests easy access to key facilities and attractions."
   },
+  "about": {
+    "title": "About Us",
+    "hotelName": "Al-Qasr Hotel",
+    "intro": "Al-Qasr Hotel is one of the projects of Al-Rayyan Real Estate and Investment Company, reflecting the values of authentic Palestinian hospitality and distinguished hospitality experiences. Located away from the hustle and bustle of the city center, the hotel offers guests easy access to key facilities and attractions.",
+    "interiorAlt": "Elegant seating area inside Al-Qasr Hotel",
+    "valuesTitle": "Our Values",
+    "values": [
+      {
+        "title": "Excellence",
+        "description": "We strive for excellence in every aspect of our service."
+      },
+      {
+        "title": "Hospitality",
+        "description": "Authentic Palestinian hospitality at the heart of what we do."
+      },
+      {
+        "title": "Quality",
+        "description": "Premium quality in facilities, services, and experiences."
+      }
+    ]
+  },
   "services": {
     "title": "Our Services",
     "subtitle": "Discover our exclusive offers and packages",
@@ -74,7 +95,7 @@
     "fullNameLabel": "Full Name",
     "fullNamePlaceholder": "Enter your full name",
     "phoneLabel": "Phone Number (WhatsApp)",
-    "phonePlaceholder": "5xxxxxxx",
+    "phonePlaceholder": "+970 5xxxxxxx",
     "checkInLabel": "Check In",
     "checkOutLabel": "Check Out",
     "roomTypeLabel": "Room Type",

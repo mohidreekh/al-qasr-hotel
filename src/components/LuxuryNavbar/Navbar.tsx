@@ -111,7 +111,7 @@ export function Navbar({
         <Link
           to="/"
           aria-label={`${logoAlt} home`}
-          className="absolute left-[4.2%] top-[0.01%] z-10 flex w-[clamp(142px,22vw,310px)] items-center justify-center transition duration-300 hover:scale-[1.015]"
+          className="absolute left-[1.5%] top-[0.01%] z-10 flex w-[clamp(142px,22vw,310px)] items-center justify-center transition duration-300 hover:scale-[1.015]"
         >
           <img
             src={logoSrc}

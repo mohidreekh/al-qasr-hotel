@@ -12,7 +12,7 @@ export function LanguageSwitcher({ currentLanguage, onToggle }: LanguageSwitcher
     <button
       type="button"
       onClick={onToggle}
-      className="static flex items-center gap-1 pr-1 font-['Kurale',serif] text-xs font-normal leading-none text-white transition-opacity hover:opacity-80 sm:text-sm min-[500px]:absolute min-[500px]:right-[0.8%] min-[500px]:top-[2.6%] min-[500px]:z-20 min-[500px]:text-[clamp(11px,1.1vw,18px)]"
+      className="static flex items-center gap-1 pr-1 font-['Kurale',serif] text-sm font-normal leading-none text-white transition-opacity hover:opacity-80 sm:text-base min-[500px]:absolute min-[500px]:right-[0.8%] min-[500px]:top-[2.6%] min-[500px]:z-20 min-[500px]:text-[clamp(14px,1.5vw,20px)]"
     >
       {!isArabic && (
         <img

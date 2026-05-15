@@ -19,6 +19,12 @@ import twinRoom from '../assets/twin-room.png?w=400;800;1200&format=avif;webp;jp
 import largeHall from '../assets/large-events-hall.png?w=400;800;1200&format=avif;webp;jpeg&quality=68&effort=6&as=picture';
 import smallHall from '../assets/small-events-hall.png?w=400;800;1200&format=avif;webp;jpeg&quality=68&effort=6&as=picture';
 
+import restaurant1 from '../assets/restaurant-image-1.png';
+import restaurant2 from '../assets/restaurant-image-2.png';
+import restaurant3 from '../assets/restaurant-image-3.png';
+import restaurant4 from '../assets/restaurant-image-4.png';
+
+
 const ServicesPage: React.FC = () => {
   const { t, i18n } = useTranslation();
 
@@ -56,7 +62,7 @@ const ServicesPage: React.FC = () => {
         onLanguageToggle={() => i18n.changeLanguage(i18n.language === 'ar' ? 'en' : 'ar')}
       />
 
-      <main className="mx-auto max-w-[1400px] px-6 pt-2 lg:px-12">
+      <main className="mx-auto lg:-mt-[clamp(80px,12vw,200px)] flex w-full max-w-[1456px] flex-col items-center px-5 pb-[clamp(62px,9.8vw,120px)] sm:px-6 lg:px-8">
         <header className="mb-16 text-center">
           <h1 className="mb-6 text-5xl font-normal text-[#304759] md:text-7xl lg:text-8xl">
             {t('services.title')}
@@ -180,19 +186,45 @@ const ServicesPage: React.FC = () => {
             {t('services.customDesc')}
           </p>
           <a 
-            href="#contact"
+            href="/contact"
             className="text-3xl font-normal text-white underline decoration-white/40 underline-offset-8 transition-colors hover:text-white/80"
           >
             {t('services.contactUs')}
           </a>
         </section>
 
-        <section className="mb-32 text-center">
+        <section className="mb-0 text-center">
             <h2 className="mb-6 text-6xl font-normal text-[#304759] md:text-8xl">{t('services.restaurant')}</h2>
             <p className="mx-auto max-w-3xl text-2xl text-[#304759]/70">
               {t('services.restaurantDesc')}
             </p>
+
+             <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-4xl mx-auto">
+    <img
+      src={restaurant1}
+      className="h-[320px] w-full rounded-xl object-cover transition-transform duration-300 hover:scale-105"
+      alt="restaurant 1"
+    />
+    <img
+      src={restaurant2}
+      className="h-[320px] w-full rounded-xl object-cover transition-transform duration-300 hover:scale-105"
+      alt="restaurant 2"
+    />
+    <img
+      src={restaurant3}
+      className="h-[320px] w-full rounded-xl object-cover transition-transform duration-300 hover:scale-105"
+      alt="restaurant 3"
+    />
+    <img
+      src={restaurant4}
+      className="h-[320px] w-full rounded-xl object-cover transition-transform duration-300 hover:scale-105"
+      alt="restaurant 4"
+    />
+  </div>
+
         </section>
+
+        
       </main>
 
       <LuxuryFooter />
