@@ -1,10 +1,13 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 
+import OptimizedPicture, { type ImagetoolsPicture } from './OptimizedPicture';
+import { SERVICE_CARD_IMAGE_SIZES } from '../lib/serviceImageSizes';
+
 interface ServiceCardProps {
   title: string;
   description: string;
-  imageSrc: string;
+  picture: ImagetoolsPicture;
   buttonText?: string;
   onBookNow?: () => void;
   className?: string;
@@ -13,7 +16,7 @@ interface ServiceCardProps {
 const ServiceCard: React.FC<ServiceCardProps> = ({
   title,
   description,
-  imageSrc,
+  picture,
   onBookNow,
 }) => {
   const navigate = useNavigate();
@@ -28,10 +31,12 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
     >
       {/* Image */}
       <div className="relative w-full overflow-hidden">
-        <img
-          src={imageSrc}
+        <OptimizedPicture
+          picture={picture}
           alt={title}
+          sizes={SERVICE_CARD_IMAGE_SIZES}
           className="h-[260px] w-full object-cover transition-transform duration-700 group-hover:scale-105 sm:h-[320px] md:h-[380px]"
+          loading="eager"
         />
       </div>
 
@@ -41,7 +46,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
           {title}
         </h3>
 
-        <p className="font-['Kurale',serif] text-[15px] leading-relaxed text-[#1C2D39]/80 sm:text-[17px] md:text-[19px]">
+        <p className="font-['Kurale',serif] text-[19px] leading-relaxed text-[#1C2D39]/85 sm:text-[21px] md:text-[23px]">
           {description}
         </p>
 

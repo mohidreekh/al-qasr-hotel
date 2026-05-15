@@ -2,6 +2,7 @@ import { lazy, Suspense } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Phone, Mail, MapPin } from 'lucide-react'
 import LuxuryNavbar from '../components/LuxuryNavbar'
+import { getDefaultLinks } from '../utils/navigation'
 import ContactForm from '../components/ContactForm'
 
 const LuxuryFooter = lazy(() => import('../components/LuxuryFooter'))
@@ -15,9 +16,14 @@ function ContactUs() {
       className="min-h-screen bg-[#fcfcfc] text-[#304759]" 
       dir={isArabic ? 'rtl' : 'ltr'}
     >
-      <LuxuryNavbar activeLabel="contact" />
+      <LuxuryNavbar
+        activeId="contact"
+        links={getDefaultLinks(t)}
+        currentLanguage={i18n.language}
+        onLanguageToggle={() => i18n.changeLanguage(i18n.language === 'ar' ? 'en' : 'ar')}
+      />
 
-      <main className="mx-auto -mt-[clamp(40px,10vw,100px)] flex w-full max-w-[1456px] flex-col items-center px-5 pb-20 pt-0 sm:-mt-[clamp(100px,18vw,280px)] sm:px-6 lg:px-8">
+      <main className="mx-auto flex w-full max-w-[1456px] flex-col items-center px-5 pb-20 sm:px-6 lg:px-8">
         {/* Header Section */}
         <section className="w-full text-center mb-12 sm:mb-20">
           <h1 className="font-['Kurale',serif] text-[clamp(48px,9vw,96px)] font-normal leading-tight text-[#304759] uppercase tracking-wide">

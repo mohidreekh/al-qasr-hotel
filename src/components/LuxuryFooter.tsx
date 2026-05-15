@@ -1,143 +1,124 @@
+import type { ReactNode } from 'react'
 import { useTranslation } from 'react-i18next'
+import { Link } from 'react-router-dom'
+import { Mail, MapPin, Phone, type LucideIcon } from 'lucide-react'
+
 import facebookIcon from '../assets/icons8-facebook-48-1.png'
 import instagramIcon from '../assets/icons8-instagram-48-1.png'
-import locationIcon from '../assets/icons8-location-50-1.png'
-import mailIcon from '../assets/icons8-mail-50-1.png'
-import phoneIcon from '../assets/icons8-phone-50-1.png'
 import tiktokIcon from '../assets/icons8-tiktok-250-1.png'
 
-type FooterLink = {
-  label: string
-  href: string
-  iconSrc: string
-  ariaLabel?: string
-}
-
-type FooterContact = {
-  label: string
-  value: string
-  href?: string
-  iconSrc: string
-}
+const socialLinks = [
+  { label: 'Facebook', href: 'https://www.facebook.com/share/1GTwSjADM2/?mibextid=wwXIfr', icon: facebookIcon },
+  { label: 'Instagram', href: 'https://www.instagram.com/al.qaserhotel.ps?igsh=aWp2MmkxbjY4aTFm', icon: instagramIcon },
+  { label: 'TikTok', href: 'https://www.tiktok.com/@al.qaser.hotel?_r=1&_t=ZS-96NbNMHr1D3', icon: tiktokIcon },
+] as const
 
 type LuxuryFooterProps = {
   className?: string
-  socialLinks?: FooterLink[]
-  contactItems?: FooterContact[]
 }
 
-const cx = (...classes: Array<string | false | undefined>) =>
-  classes.filter(Boolean).join(' ')
-
-const getSocialLinks = (): FooterLink[] => [
-  { label: 'Facebook', href: '#', iconSrc: facebookIcon },
-  { label: 'Instagram', href: '#', iconSrc: instagramIcon },
-  { label: 'Tik Tok', href: '#', iconSrc: tiktokIcon },
-]
-
-const getContactItems = (t: any): FooterContact[] => [
-  { label: t('footer.phone'), value: '+970 59-311-5510', href: 'tel:+970593115510', iconSrc: phoneIcon },
-  { label: t('footer.email'), value: 'awwad.hamdan@alqaser.com', href: 'mailto:awwad.hamdan@alqaser.com', iconSrc: mailIcon },
-  { label: t('footer.address'), value: t('footer.addressValue'), iconSrc: locationIcon },
-]
-
-const footerSurfaceStyle = {
-  backgroundImage:
-    'linear-gradient(180deg, rgba(255,255,255,0.045) 0%, rgba(255,255,255,0.012) 20%, rgba(255,255,255,0) 44%), linear-gradient(98deg, #152633 0%, #203646 44%, #4f7190 100%)',
-  boxShadow:
-    '0 18px 34px rgba(17,28,40,0.14)',
+type ContactItem = {
+  label: string
+  value: string
+  href?: string
+  Icon: LucideIcon
 }
 
-function LuxuryFooter({
-  className,
-  socialLinks,
-  contactItems,
-}: LuxuryFooterProps) {
+function IconTile({ children }: { children: ReactNode }) {
+  return (
+    <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-white/10 ring-1 ring-white/15 transition group-hover:bg-[#C69479]/25 group-hover:ring-[#C69479]/40">
+      {children}
+    </span>
+  )
+}
+
+function LuxuryFooter({ className = '' }: LuxuryFooterProps) {
   const { t } = useTranslation()
-  const links = socialLinks || getSocialLinks()
-  const items = contactItems || getContactItems(t)
+  const year = new Date().getFullYear()
+
+  const contacts: ContactItem[] = [
+    {
+      label: t('footer.phone'),
+      value: '+970 59-311-5510',
+      href: 'tel:+970593115510',
+      Icon: Phone,
+    },
+    {
+      label: t('footer.email'),
+      value: 'awwad.hamdan@alqaser.com',
+      href: 'mailto:awwad.hamdan@alqaser.com',
+      Icon: Mail,
+    },
+    {
+      label: t('footer.address'),
+      value: t('footer.addressValue'),
+      Icon: MapPin,
+    },
+  ]
+
+  const rowClass =
+    'group inline-flex w-full max-w-sm items-center gap-4 transition hover:text-white'
 
   return (
     <footer
-      className={cx(
-        'w-full overflow-x-clip bg-transparent px-4 py-10 sm:px-5',
-        className,
-      )}
+      className={`mt-16 bg-gradient-to-b from-[#12202c] via-[#1a3348] to-[#243f55] text-white ${className}`}
     >
-      <div
-        className="mx-auto grid w-full max-w-[1456px] grid-cols-1 items-center gap-8 rounded-[28px] px-6 py-7 text-white sm:px-8 sm:py-8 md:grid-cols-[minmax(0,0.88fr)_minmax(0,1.12fr)] md:items-start md:gap-12 lg:px-12 lg:py-10 xl:grid-cols-[340px_760px] xl:justify-center xl:gap-[clamp(90px,10vw,170px)]"
-        style={footerSurfaceStyle}
-      >
-        <section aria-labelledby="luxury-footer-social" className="flex flex-col items-center">
-          <h2
-            id="luxury-footer-social"
-            className="text-center font-['Roboto',sans-serif] text-[clamp(22px,5vw,44px)] font-bold leading-none tracking-wide"
-          >
-            {t('footer.followUs')}
-          </h2>
+      <div className="mx-auto max-w-2xl px-6 py-12 text-center sm:py-14">
+        <Link
+          to="/"
+          className="font-['Kurale',serif] text-[clamp(28px,6vw,40px)] leading-tight text-white transition hover:text-[#E8C4A8]"
+        >
+          {t('home.hotelName')}
+        </Link>
 
-          <ul className="mx-auto mt-[clamp(20px,5vw,40px)] flex w-full max-w-[18rem] flex-col items-center gap-[clamp(16px,4.5vw,34px)] md:max-w-none md:items-start">
-            {links.map(({ label, href, iconSrc, ariaLabel }) => (
-              <li key={label} className="w-full">
-                <a
-                  href={href}
-                  aria-label={ariaLabel ?? label}
-                  className="group inline-flex w-full items-center justify-center gap-[clamp(10px,1.2vw,18px)] text-center font-['Roboto',sans-serif] text-[clamp(12px,3.8vw,22px)] font-normal leading-none text-white/94 underline decoration-white/92 decoration-1 underline-offset-[4px] transition duration-300 hover:-translate-y-0.5 hover:text-white md:justify-start md:text-left"
-                >
-                  <img
-                    src={iconSrc}
-                    alt=""
-                    className="h-[clamp(16px,4.6vw,34px)] w-[clamp(16px,4.6vw,34px)] shrink-0 object-contain transition duration-300 group-hover:scale-105"
-                  />
-                  <span>{label}</span>
-                </a>
-              </li>
-            ))}
-          </ul>
-        </section>
-
-        <section aria-labelledby="luxury-footer-contact" className="flex flex-col items-center">
-          <h2
-            id="luxury-footer-contact"
-            className="text-center font-['Roboto',sans-serif] text-[clamp(22px,5vw,44px)] font-bold leading-none tracking-wide"
-          >
-            {t('footer.contact')}
-          </h2>
-
-          <ul className="mx-auto mt-[clamp(20px,5vw,40px)] flex w-full max-w-[26rem] flex-col items-center gap-[clamp(16px,4.5vw,34px)] md:items-start">
-            {items.map(({ label, value, href, iconSrc }) => {
-              const content = (
-                <>
-                  <img
-                    src={iconSrc}
-                    alt=""
-                    className="mt-[2px] h-[clamp(16px,4.6vw,34px)] w-[clamp(16px,4.6vw,34px)] shrink-0 object-contain"
-                  />
-                  <span className="min-w-0 break-words text-center md:text-left">
-                    {label}: {value}
+        <ul className="mt-10 flex flex-col items-center gap-6">
+          {contacts.map(({ label, value, href, Icon }) => {
+            const content = (
+              <>
+                <IconTile>
+                  <Icon className="h-5 w-5" strokeWidth={1.75} />
+                </IconTile>
+                <span className="min-w-0 text-start">
+                  <span className="block text-xs font-medium uppercase tracking-wider text-white/45">
+                    {label}
                   </span>
-                </>
-              )
+                  <span className="mt-1 block font-['Kurale',serif] text-lg leading-snug text-white/95 [direction:ltr]">
+                    {value}
+                  </span>
+                </span>
+              </>
+            )
 
-              return (
-                <li key={label} className="w-full">
-                  {href ? (
-                    <a
-                      href={href}
-                      className="inline-flex w-full min-w-0 items-start justify-center gap-[clamp(10px,1.2vw,18px)] font-['Roboto',sans-serif] text-[clamp(12px,3.8vw,22px)] font-normal leading-[1.22] text-white/94 transition duration-300 hover:-translate-y-0.5 hover:text-white md:justify-start"
-                    >
-                      {content}
-                    </a>
-                  ) : (
-                    <div className="inline-flex w-full min-w-0 items-start justify-center gap-[clamp(10px,1.2vw,18px)] font-['Roboto',sans-serif] text-[clamp(12px,3.8vw,22px)] font-normal leading-[1.22] text-white/94 md:justify-start">
-                      {content}
-                    </div>
-                  )}
-                </li>
-              )
-            })}
-          </ul>
-        </section>
+            return (
+              <li key={label} className="w-full max-w-sm">
+                {href ? (
+                  <a href={href} className={rowClass}>
+                    {content}
+                  </a>
+                ) : (
+                  <div className={rowClass}>{content}</div>
+                )}
+              </li>
+            )
+          })}
+        </ul>
+
+        <div className="mt-10 flex flex-wrap items-center justify-center gap-3">
+          {socialLinks.map(({ label, href, icon }) => (
+            <a
+              key={label}
+              href={href}
+              aria-label={label}
+              className="flex h-12 w-12 items-center justify-center rounded-full bg-white/10 ring-1 ring-white/15 transition hover:bg-[#C69479]/25 hover:ring-[#C69479]/40"
+            >
+              <img src={icon} alt="" className="h-6 w-6 object-contain opacity-90" />
+            </a>
+          ))}
+        </div>
+
+        <p className="mt-10 text-sm text-white/35">
+          © {year} {t('home.hotelName')}
+        </p>
       </div>
     </footer>
   )

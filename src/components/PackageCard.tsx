@@ -1,68 +1,51 @@
-import React from 'react';
+import { useNavigate } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
+import { Check } from 'lucide-react'
 
 interface PackageCardProps {
-  title: string;
-  points: string[];
-  onBookNow?: () => void;
+  title: string
+  points: string[]
+  onBookNow?: () => void
 }
 
-/**
- * PackageCard - A minimalist luxury card component.
- * Features a title, list of points, and a "Book Now" action.
- * Normalized to a professional, natural size.
- */
-const PackageCard: React.FC<PackageCardProps> = ({
-  title,
-  points,
-  onBookNow,
-}) => {
+function PackageCard({ title, points, onBookNow }: PackageCardProps) {
+  const navigate = useNavigate()
+  const { t } = useTranslation()
+  const handleBookNow = onBookNow ?? (() => navigate('/booking'))
+
   return (
-    <div
-      className="
-        relative flex flex-col items-center justify-between
-        rounded-2xl bg-white p-8 text-center shadow-[0_10px_30px_rgba(0,0,0,0.03)]
-        transition-all duration-500 hover:shadow-[0_20px_50px_rgba(0,0,0,0.08)]
-        sm:rounded-3xl sm:p-10 md:p-12
-      "
-    >
-      <div className="flex flex-col items-center w-full">
-        {/* Title - Natural Luxury Scale */}
-        <h2 className="mb-6 font-['Kurale',serif] text-2xl font-normal text-[#162633] sm:text-3xl md:text-4xl">
-          {title}
-        </h2>
+    <article className="group flex h-full flex-col rounded-[28px] bg-white p-6 shadow-[0_20px_50px_rgba(0,0,0,0.08)] transition-shadow duration-500 hover:shadow-[0_32px_64px_rgba(0,0,0,0.11)] sm:p-8 md:p-10">
+      <span
+        aria-hidden
+        className="mb-5 block h-1 w-14 rounded-full bg-gradient-to-r from-[#C69479] to-[#466D8B]"
+      />
 
-        {/* Points - Readable Scale */}
-        <ul className="mb-10 flex flex-col gap-3 text-left">
-          {points.map((point, index) => (
-            <li 
-              key={index}
-              className="flex items-center font-['Kurale',serif] text-sm text-[#304759]/70 sm:text-base md:text-lg"
-            >
-              <span className="mr-3 h-1.5 w-1.5 rounded-full bg-[#436886]" />
+      <h2 className="font-['Kurale',serif] text-[32px] font-normal leading-tight text-[#304759] sm:text-[38px] md:text-[44px]">
+        {title}
+      </h2>
+
+      <ul className="mt-8 flex flex-1 flex-col gap-5">
+        {points.map((point) => (
+          <li key={point} className="flex items-start gap-4 text-start">
+            <span className="mt-1 flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[#304759]/8 text-[#466D8B] sm:h-10 sm:w-10">
+              <Check className="h-5 w-5 sm:h-[22px] sm:w-[22px]" strokeWidth={2.25} aria-hidden />
+            </span>
+            <span className="font-['Kurale',serif] text-[19px] leading-relaxed text-[#304759]/85 sm:text-[21px] md:text-[23px]">
               {point}
-            </li>
-          ))}
-        </ul>
-      </div>
+            </span>
+          </li>
+        ))}
+      </ul>
 
-      {/* Action Button - Balanced Design */}
       <button
-        onClick={onBookNow}
-        className="
-          flex h-12 w-full max-w-[200px] items-center justify-center rounded-full
-          bg-gradient-to-r from-[#162633] to-[#436886]
-          font-['Kurale',serif] text-sm font-normal text-white
-          transition-all duration-300 hover:scale-105 hover:shadow-[0_15px_30px_rgba(22,38,51,0.2)]
-          active:scale-95 sm:h-14 sm:text-base md:h-16 md:text-lg
-        "
+        type="button"
+        onClick={handleBookNow}
+        className="mt-10 flex h-[56px] w-full cursor-pointer items-center justify-center rounded-2xl bg-gradient-to-r from-[#1C2D39] to-[#466D8B] font-['Kurale',serif] text-[24px] text-white transition-all duration-300 hover:scale-[1.02] hover:shadow-lg active:scale-[0.98] sm:h-[60px] sm:text-[28px]"
       >
-        Book Now
+        {t('nav.bookNow')}
       </button>
+    </article>
+  )
+}
 
-      {/* Subtle background detail */}
-      <div className="absolute inset-x-0 bottom-0 h-1 rounded-b-2xl bg-gradient-to-r from-[#162633]/5 to-[#436886]/5" />
-    </div>
-  );
-};
-
-export default PackageCard;
+export default PackageCard
