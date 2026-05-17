@@ -1,7 +1,7 @@
 import { Check, Heart, Star, type LucideIcon } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
 
-import aboutHotelInterior from '../assets/hotel-lounge.png'
+import aboutHotelInterior from '../assets/hotel-lounge.jpg'
 import LuxuryFooter from '../components/LuxuryFooter'
 import LuxuryNavbar from '../components/LuxuryNavbar'
 import { getDefaultLinks } from '../utils/navigation'

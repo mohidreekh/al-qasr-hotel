@@ -87,17 +87,14 @@ export function NavItem({ item, isActive, isMobile, onClick }: NavItemProps) {
 
   if (hasChildren) {
     return (
-      <div
-        className="group relative"
-        onMouseEnter={() => setIsSubmenuOpen(true)}
-        onMouseLeave={() => setIsSubmenuOpen(false)}
-        onFocus={() => setIsSubmenuOpen(true)}
-        onBlur={(event) => {
-          if (!event.currentTarget.contains(event.relatedTarget)) {
-            setIsSubmenuOpen(false)
-          }
-        }}
-      >
+     <div
+  className="group relative"
+  onBlur={(event) => {
+    if (!event.currentTarget.contains(event.relatedTarget)) {
+      setIsSubmenuOpen(false)
+    }
+  }}
+>
         <button
           type="button"
           aria-current={isActive ? 'page' : undefined}
