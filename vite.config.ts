@@ -4,6 +4,8 @@ import tailwindcss from '@tailwindcss/vite'
 import { imagetools } from 'vite-imagetools'
 
 export default defineConfig({
+  base: '/',
+  
   plugins: [
     tailwindcss(),
     react(),
