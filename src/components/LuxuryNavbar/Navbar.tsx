@@ -101,6 +101,8 @@ export function Navbar({
           onClose={handleClose}
           links={links}
           activeId={activeId}
+          currentLanguage={currentLanguage}
+          onLanguageToggle={onLanguageToggle}
         />
       </div>
 
