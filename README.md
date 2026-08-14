@@ -1,73 +1,72 @@
-# React + TypeScript + Vite
+# Al Qasr Hotel
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A luxury hotel web application providing seamless booking experiences, multilingual support, and interactive service showcases.
 
-Currently, two official plugins are available:
+## Live Demo
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+https://al-qasr-hotel.netlify.app
 
-## React Compiler
+## Features
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- **Luxury Booking System**: Interactive room and package reservation forms.
+- **Multilingual Support**: Internationalization (i18n) supporting multiple language switching.
+- **Email Integration**: Automated booking requests and contact submissions using EmailJS.
+- **Accessibility & Customization**: Built-in accessibility theme controls and responsive design.
+- **Performance Optimized**: Fast client-side rendering with Vite and optimized image components.
 
-## Expanding the ESLint configuration
+## Tech Stack
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- **Framework**: React 19, TypeScript, Vite
+- **Styling**: Tailwind CSS v4
+- **Routing**: React Router v7
+- **Localization**: i18next & react-i18next
+- **Email Service**: EmailJS
+- **Icons**: Lucide React
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## Installation
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+```bash
+# Clone the repository
+git clone https://github.com/mohidreekh/al-qasr-hotel.git
+cd al-qasr-hotel
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+# Install dependencies
+npm install
+
+# Start the development server
+npm run dev
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Environment Variables
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+Create a `.env` file in the root directory and configure the following EmailJS variables:
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```env
+VITE_EMAILJS_SERVICE_ID=your_emailjs_service_id
+VITE_EMAILJS_PUBLIC_KEY=your_emailjs_public_key
+VITE_EMAILJS_TEMPLATE_BOOKING=your_booking_template_id
+VITE_EMAILJS_TEMPLATE_CONTACT=your_contact_template_id
+```
+
+## Project Structure
+
+```
+al-qasr-hotel/
+├── public/
+├── src/
+│   ├── assets/
+│   ├── components/
+│   ├── lib/
+│   ├── locales/
+│   ├── pages/
+│   ├── services/
+│   ├── utils/
+│   ├── App.tsx
+│   ├── i18n.ts
+│   ├── index.css
+│   └── main.tsx
+├── .env
+├── index.html
+├── package.json
+└── vite.config.ts
 ```
